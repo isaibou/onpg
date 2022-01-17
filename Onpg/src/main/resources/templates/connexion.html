@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <!-- basic -->
+   <meta charset="utf-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <!-- mobile metas -->
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+   <!-- site metas -->
+   <title>Auricle - The Multi-Purpose Responsive HTML5 Template</title>
+   <meta name="keywords" content="">
+   <meta name="description" content="">
+   <meta name="author" content="">
+   <!-- site icons -->
+   <link rel="icon" href="images/fevicon/fevicon.png" type="image/png" />
+   <!-- bootstrap css -->
+   <link rel="stylesheet" href="css/bootstrap.min.css" />
+   <!-- site css -->
+   <link rel="stylesheet" href="css/style.css" />
+   <!-- responsive css -->
+   <link rel="stylesheet" href="css/responsive.css" />
+   <!-- colors css -->
+   <link rel="stylesheet" href="css/colors.css" />
+   <!-- wow animation css -->
+   <link rel="stylesheet" href="css/animate.css" />
+   <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+      <![endif]-->
+</head>
+
+<body id="default_theme" class="team">
+   <!-- header -->
+   <header class="header header_style1">
+      <div class="container">
+         <div class="row">
+            <div class="col-md-9 col-lg-10">
+               <div class="logo"><a href="index.html"><img src="images/logo_onp.png" width="50px" alt="#" /></a></div>
+               <div class="main_menu float-right">
+                  <div class="menu">
+                     <ul class="clearfix">
+                        <li class="active"><a href="index.html">Acceuil</a></li>
+                        <li><a href="about.html">A propos</a></li>
+                        <li><a href="service.html">Inscription</a></li>
+                        <li><a href="screenshots.html">Forum</a></li>
+                        <li><a href="pricing.html">Contacter</a></li>
+                        <li><a href="team.html">Team</a></li>
+                        <li><a href="contact.html">Contacter</a></li>
+                     </ul>
+                  </div>
+               </div>
+            </div>
+            <div class="col-md-3 col-lg-2">
+               <div class="right_bt"><a class="bt_main" href="index.html">Se connecter</a> </div>
+            </div>
+         </div>
+      </div>
+   </header>
+   <!-- end header -->
+   <!-- section -->
+   <div class="panel panel-default">
+      <div class="panel-heading"> Inscription </div>
+      <form th:action="@{inscrire}" enctype="multipart/form-data" method="post" th:object="${client}">
+
+         <div class="form-group">
+            <label class="col-md-4 control-label">Nom :</label>
+            <div class="col-md-4 inputGroupContainer">
+               <div class="input-group">
+                  <span class="input-group-addcon"><i class="glyphicon glyphicon-user"></i></span>
+                  <input type="text" class="form-control" placeholder="Entrer votre nom" id="input-id-1" required
+                     name="nom" th:field=*{nom} />
+                  <span class="text-danger" th:errors=*{nom}></span>
+               </div>
+            </div>
+
+
+            <div>
+               <button style="margin:0px;" class="btn m-b-xs btn-sm btn-default btn-addon pull-right"><a
+                     href="javascript:history.back()"><i class="glyphicon glyphicon-remove"></i>Annuler</a></button>
+               <button style="margin:0px;" class="btn m-b-xs btn-sm btn-primary btn-addon pull-right"><i
+                     class="glyphicon glyphicon-ok"></i>S'inscrire</button>
+            </div>
+
+         </div>
+      </form>
+      <!-- footer bottom -->
+      <div class="footer_bottom">
+         <p>Dessigned and developed by <strong>html.design</strong></p>
+      </div>
+      </footer>
+      <!-- end footer -->
+      <!--=========== js section ===========-->
+      <!-- jQuery (necessary for Bootstrap's JavaScript) -->
+      <script src="js/jquery.min.js"></script>
+      <script src="js/popper.min.js"></script>
+      <script src="js/bootstrap.min.js"></script>
+      <!-- wow animation -->
+      <script src="js/wow.js"></script>
+      <!-- custom js -->
+      <script src="js/custom.js"></script>
+      <!-- google map js -->
+      <script
+         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8eaHt9Dh5H57Zh0xVTqxVdBFCvFMqFjQ&callback=initMap"></script>
+      <!-- end google map js -->
+</body>
+
+</html>
