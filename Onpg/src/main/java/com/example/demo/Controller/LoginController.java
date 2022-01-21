@@ -10,4 +10,8 @@ public class LoginController {
 	public String Acceuil() {
 		return"login";
 	}
+	@RequestMapping("/login1")
+	public String login() {
+		return"login1";
+	}
 }

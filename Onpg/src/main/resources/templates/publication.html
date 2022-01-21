@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html  xmlns:th="http://www.thymeleaf.org" lang="en">
 
 <head>
    <!-- basic -->
@@ -13,6 +13,11 @@
    <meta name="keywords" content="">
    <meta name="description" content="">
    <meta name="author" content="">
+   <link rel="stylesheet" href="/css/font.css" type="text/css" />
+   <link rel="stylesheet" href="../libs/assets/animate.css/animate.css" type="text/css" />
+<link rel="stylesheet" href="../libs/assets/font-awesome/css/font-awesome.min.css" type="text/css" />
+<link rel="stylesheet" href="../libs/assets/simple-line-icons/css/simple-line-icons.css" type="text/css" />
+<link rel="stylesheet" href="../libs/jquery/bootstrap/dist/css/bootstrap.css" type="text/css" />
    <!-- site icons -->
    <link rel="icon" href="images/fevicon/fevicon.png" type="image/png" />
    <!-- bootstrap css -->
@@ -43,16 +48,18 @@
                      <ul class="clearfix">
                         <li ><a href="index">Acceuil</a></li>
                         <li ><a href="presentation">A propos</a></li>
-                        <li><a href="inscriptionO">Inscription à l'ordre</a></li>
+                        <li><a href="inscriptionO">Inscription</a></li>
                         <li><a href="forum">Forum</a></li>
                         <li class="active"><a href="publication">Publications</a></li>
                         <li ><a href="paiement">Paiement</a></li>
+                        <li ><a href="membres">Membres</a></li>
+                        
                      </ul>
                   </div>
                </div>
             </div>
             <div class="col-md-3 col-lg-2">
-               <div class="right_bt"><a class="bt_main" href="index.html">Se connecter</a> </div>
+               <div class="right_bt"><a class="bt_main" href="login1">Se connecter</a> </div>
             </div>
          </div>
       </div>
@@ -70,6 +77,96 @@
          </div>
       </div>
    </section>
+   	<div class="wrapper bg-white b-b">
+	 <ul class="nav nav-pills nav-sm">
+	  <li class="active"><a href="#tab_default_1" data-toggle="tab">Textes Règlementaires </a></li>
+	  <li><a href="#tab_default_2" data-toggle="tab">Publications scientifiques </a></li>
+	  <li><a href="#tab_default_3" data-toggle="tab">Offres d'emploie</a></li>
+     </ul>
+	</div>
+	  <div class="tab-content" >
+	 <div class="tab-pane active" id="tab_default_1" style="padding:20px 15px;margin:0px 2px;border-top:2px #19a9d5 solid;background-color:white;">
+	  <div class="panel panel-default">
+       <div class="table-responsive">
+	Les différents textes règlementaires
+      </div>
+     </div>
+	</div>
+     <div class="tab-pane" id="tab_default_2" style="padding:20px 15px;margin:0px 2px;border-top:2px #19a9d5 solid;background-color:white;">
+	 <div class="panel panel-default">
+      <div class="table-responsive">
+	   <table ui-jq="dataTable" ui-options="{aoColumns: [
+												
+												
+												{ pData: 'Name ' },
+												{ pData: 'Login' },
+												{ pData: 'Company' },
+												{ pData: 'Statut' }]
+											}" class="table  b-t b-b">
+		<thead>
+		 <tr>
+	
+		  <th  style="width:16%"><center>Auteur</center></th>
+		  <th  style="width:15%"><center>Sujet</center></th>
+	      <th  style="width:15%"><center>Date</center></th>
+		  <th  style="width:15%"><center>Actions</center></th>
+		 </tr>
+		</thead>
+		<tbody>
+	 <tr sec:authorize="hasRole('ROLE_ADMIN')" data-expanded="true" th:each="u:${allPubli}">
+	
+          <td th:text ="${u.auteur}"><center></center></td>
+          <td th:text = "${u.sujet}"><center><center><span class="label bg-danger pull-center m-t-md"></span></center></center></td>
+		  <td th:text = "${u.datePubli}"></td> 
+		   <td><center>
+    <button class="btn btn-default btn-xs">
+     <i class="glyphicon glyphicon-cog"></i> <a th:href="f"> Télécharger</a> </button></center></td>
+    
+		
+		 </tr>
+	</tbody>
+	   </table>
+      </div>
+	 </div>
+	</div>
+	
+	 <div class="tab-pane" id="tab_default_3" style="padding:20px 15px;margin:0px 2px;border-top:2px #19a9d5 solid;background-color:white;">
+	 <div class="panel panel-default">
+      <div class="table-responsive">
+	   <table ui-jq="dataTable" ui-options="{aoColumns: [
+												
+												
+												{ pData: 'Name ' },
+												{ pData: 'Login' },
+												{ pData: 'Company' },
+												{ pData: 'Statut' }]
+											}" class="table  b-t b-b">
+		<thead>
+		 <tr>
+	
+		  <th  style="width:40%"><center>Description de l'offre</center></th>
+		  <th  style="width:15%"><center>Salaire</center></th>
+	      <th  style="width:20%"><center>Entreprise</center></th>
+	      <th  style="width:15%"><center>Horaire</center></th>
+	      
+		 </tr>
+		</thead>
+		<tbody>
+	 <tr  data-expanded="true"   th:each="o:${allOffre}">
+	
+          <td th:text ="${o.description}"><center></center></td>
+          <td th:text = "${o.salaire}"><center><center><span class="label bg-danger pull-center m-t-md"></span></center></center></td>
+		  <td th:text = "${o.entreprise}"></td>
+		  <td th:text = "${o.disponibilite}"></td>
+	
+		 </tr>
+	</tbody>
+	   </table>
+      </div>
+	 </div>
+	</div>
+   </div>
+ 
    <!-- end section -->
    <!-- section -->
    <!-- end section -->
@@ -92,6 +189,15 @@
    <!-- custom js -->
    <script src="js/custom.js"></script>
    <!-- google map js -->
+   <script src="../libs/jquery/jquery/dist/jquery.js"></script>
+<script src="../libs/jquery/bootstrap/dist/js/bootstrap.js"></script>
+<script src="js/ui-load.js"></script>
+<script src="js/ui-jp.config.js"></script>
+<script src="js/ui-jp.js"></script>
+<script src="js/ui-nav.js"></script>
+<script src="js/ui-toggle.js"></script>
+<script src="js/ui-client.js"></script>
+<script src="js/myjavascript.js"></script>
    <script
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8eaHt9Dh5H57Zh0xVTqxVdBFCvFMqFjQ&callback=initMap"></script>
    <!-- end google map js -->

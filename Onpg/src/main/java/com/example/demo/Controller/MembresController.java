@@ -4,10 +4,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-public class InscriptionSiteController {
+public class MembresController {
 
-	@RequestMapping("/inscriptionS")
-	public String InscreiotionS() {
-		return"inscription2";
+	@RequestMapping("/membres")
+	public String Acceuil() {
+		return"membres";
 	}
 }

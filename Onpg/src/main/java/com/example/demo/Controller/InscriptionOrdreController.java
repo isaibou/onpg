@@ -11,9 +11,16 @@ public class InscriptionOrdreController {
 		return"inscriptionO";
 	}
 	
+	
+	
 	@RequestMapping("/insO")
 	public String InsO() {
 		return"addInsO";
+	}
+		
+		@RequestMapping("/insO2")
+		public String InsO2() {
+			return"addInsO2";
 	}
 	@RequestMapping("/add")
 	public String add() {
