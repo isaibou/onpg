@@ -14,4 +14,9 @@ public class LoginController {
 	public String login() {
 		return"login1";
 	}
+	
+	@RequestMapping("/forgetPassword")
+	public String fpw() {
+		return"forgetPassword";
+	}
 }
