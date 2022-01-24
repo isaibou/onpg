@@ -10,6 +10,11 @@ public class ForumController {
 		return"forum";
 	}
 	
+	@RequestMapping("/forum2")
+	public String forum2() {
+		return"forum2";
+	}
+	
 	@RequestMapping("/author")
 	public String author() {
 		return"author";
