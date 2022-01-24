@@ -9,11 +9,14 @@ html {
 	/*Image only BG fallback*/
 	
 	/*background = gradient + image pattern combo*/
-	background: 
-		linear-gradient(rgba(196, 102, 0, 0.6), rgba(155, 89, 182, 0.6));
+	
+	background-image: url('../images/medoc1.jpg');
+background-size: cover;
+background-repeat: no-repeat;
 }
 
 body {
+	
 	font-family: montserrat, arial, verdana;
 }
 /*form styles*/

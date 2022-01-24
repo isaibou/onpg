@@ -9,4 +9,11 @@ public class ForumController {
 	public String forum() {
 		return"forum";
 	}
+	
+	@RequestMapping("/author")
+	public String author() {
+		return"author";
+	}
+	
+	
 }
