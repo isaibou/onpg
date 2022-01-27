@@ -15,6 +15,11 @@ public class ForumController {
 		return"forum2";
 	}
 	
+	@RequestMapping("/forum4")
+	public String forum4() {
+		return"forum4";
+	}
+	
 	@RequestMapping("/author")
 	public String author() {
 		return"author";
