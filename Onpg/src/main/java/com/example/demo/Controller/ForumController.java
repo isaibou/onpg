@@ -7,7 +7,7 @@ public class ForumController {
 
 	@RequestMapping("/forum")
 	public String forum() {
-		return"forum";
+		return"forum4";
 	}
 	
 	@RequestMapping("/forum2")
