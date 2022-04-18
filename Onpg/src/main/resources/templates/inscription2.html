@@ -1,6 +1,7 @@
 
 <!DOCTYPE html>
-<html>
+<html  xmlns:th="http://www.thymeleaf.org"
+	  xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
 <meta charset="utf-8" />
 	<title>Page d'inscription</title>
@@ -33,54 +34,52 @@
 				</div> -->
 			</div>
 			<div class="card-body">
-				<form>
+				<form th:action="@{/saveUsers}" th:object=${user}>
+				<div th:if="${error}" th:text="${error}" class="alert alert-danger"></div>
 					<div class="input-group form-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-user"></i></span>
 						</div>
-						<input type="text" class="form-control" placeholder="Entrez votre nom">
+						<input type="text" class="form-control" placeholder="Entrez votre nom"  required th:field=*{nom}>
 						
 					</div>
 					<div class="input-group form-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-user"></i></span>
 						</div>
-						<input type="text" class="form-control" placeholder="Entrez votre prénom">
+						<input type="text" class="form-control" placeholder="Entrez votre prénom"  required th:field=*{prenom}>
 						
 					</div>
 					<div class="input-group form-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text"> <i class="fas fa-envelope-square"></i></span>
 						</div>
-						<input type="text" class="form-control" placeholder="Entrez votre email">
+						<input type="email" class="form-control" placeholder="Entrez votre email"  required th:field=*{email}>
 						
 					</div>
 					<div class="input-group form-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-key"></i></span>
 						</div>
-						<input type="text" class="form-control" placeholder="Entrez votre mot de passe">
+						<input type="password" class="form-control" placeholder="Entrez votre mot de passe" name ="mdp1" required th:field=*{mdp}>
 						
 					</div>
 					<div class="input-group form-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-key"></i></span>
 						</div>
-						<input type="text" class="form-control" placeholder="Confirmez votre mot de passe">
+						<input type="password" name ="mdp2" class="form-control" required placeholder="Confirmez votre mot de passe">
 						
 					</div>
 					<div class="input-group form-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-list"></i></span>
 						</div>
-					 <select name="department" class="form-control selectpicker">
-      <option value="">Selectionnez  votre spécialité</option>
-      <option>Section A : Officineaux</option>
-      <option>Section B : Laboratoires</option>
-      <option>Section C : Grossistes</option>
-      <option>Section D : Fonctionnaires</option>
-     
-    </select>
+					
+     <select name ="role" class="form-control selectpicker" th:field="*{roles}">
+ <option value="">Selectionnez  votre spécialité</option>
+   <option th:each="r:${allRoles}"  th:text="${r.description}" required th:value="${r.role}"></option>
+   </select>
 					</div>
 					
 					<!-- <div class="row align-items-center remember">

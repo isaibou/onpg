@@ -1,6 +1,7 @@
 
 <!DOCTYPE html>
-<html>
+<html  xmlns:th="http://www.thymeleaf.org"
+	  xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
 <meta  charset="utf-8" >
 	<title>Page de Connexion</title>
@@ -33,19 +34,22 @@
 				</div> -->
 			</div>
 			<div class="card-body">
-				<form>
+				<form th:action="@{/login1}" method="post">
 					<div class="input-group form-group">
+					 <div th:if="${param.error}" class="alert alert-danger">    
+  	  Email ou mot de passe invalide .
+	  </div>
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-user"></i></span>
 						</div>
-						<input type="text" class="form-control" placeholder="Entrez votre email">
+						<input type="email" class="form-control" name="username" placeholder="Entrez votre email">
 						
 					</div>
 					<div class="input-group form-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-key"></i></span>
 						</div>
-						<input type="password" class="form-control" placeholder="Entez votre mot de passe">
+						<input type="password" class="form-control"  name="password" placeholder="Entez votre mot de passe">
 					</div>
 					<!-- <div class="row align-items-center remember">
 						<input type="checkbox">Remember Me

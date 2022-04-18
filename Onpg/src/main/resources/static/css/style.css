@@ -1168,9 +1168,9 @@ section .social_icons {
 
 #banner_parallax p, 
 #banner_slide p {
-    color: #fff;
+    color : #fff;
     font-weight: 300;
-    margin-top: 10px;
+    margin-top: 1px;
     position: relative;
     left: 0;
     margin-bottom: 20px;

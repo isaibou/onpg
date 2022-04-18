@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8" />
+  <title>Inscription à l'ONPG</title>
+  <meta name="description" content="app, web app, responsive, responsive layout, admin, admin panel, admin dashboard, flat, flat ui, ui kit, AngularJS, ui route, charts, widgets, components" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <link rel="stylesheet" href="../libs/assets/animate.css/animate.css" type="text/css" />
+  <link rel="stylesheet" href="../libs/assets/font-awesome/css/font-awesome.min.css" type="text/css" />
+  <link rel="stylesheet" href="../libs/assets/simple-line-icons/css/simple-line-icons.css" type="text/css" />
+  <link rel="stylesheet" href="../libs/jquery/bootstrap/dist/css/bootstrap.css" type="text/css" />
+  <link rel="stylesheet" href="css/font.css" type="text/css" />
+    <link rel="stylesheet" href="css/ibe.css" type="text/css" />
+  
+  
+  
+</head>
+<body  id="ibrahim">
+ 
+<div style="margin:50px;"></div>
+<div class="col-md-6 col-sm-6 col-xs-12 spacer col-md-offset-3">
+   <a href="" class="navbar-brand block m-t"><i class="glyphicon glyphicon-plus-sign"></i> <b>Inscription a l'ONPG</b> </a>
+  <div class="panel panel-default">
+   <div class="panel-heading"> Ajouter une publication </div>
+       
+    
+    <form class="well form-horizontal" th:action="@{addPublication}" method="post" enctype="multipart/form-data"  th:object="${inscrip}">
+<fieldset>
+
+<!-- Form Name -->
+
+<!-- Text input-->
+
+<div class="form-group">
+  <label class="col-md-4 control-label">Sujet : </label>  
+  <div class="col-md-6 inputGroupContainer">
+  <div class="input-group">
+  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+  <input  name="sujet" placeholder="Entrez votre nom" class="form-control"  type="text">
+    </div>
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-md-4 control-label">Document :</label>  
+    <div class="col-md-6 inputGroupContainer">
+    <div class="input-group">
+        <span class="input-group-addon"><i class="glyphicon glyphicon-file"></i></span>
+  <input  placeholder="Entrez le nombre d'année de cours" class="form-control" name="file" type="file">
+    </div>
+  </div>
+</div>
+
+<!-- Text input-->
+
+
+<!-- Text input-->
+
+
+<!-- Text input-->
+       
+
+
+
+<!-- Select Basic -->
+
+<!-- Success message -->
+
+ <div class="form-group">
+  <label class="col-md-7 control-label"></label>
+  <div class="col-md-2">
+    <button type="submit" class="btn btn-primary" >Suivant <span class="glyphicon glyphicon-send"></span></button>
+  </div> 
+  <div class="col-md-2">
+    <button class="btn btn-danger"> <a href="javascript:history.back()">Retour</a>  <span class="glyphicon glyphicon-remove"></span></button>
+  </div> 
+  
+</div>
+
+</fieldset>
+</form>
+    </div>
+<div class="text-center">	
+ <p><small class="text-muted">
+  <span class="pull-right">2.2.0 <a href ui-scroll="app" class="m-l-sm text-muted"><i class="fa fa-long-arrow-up"></i></a></span>
+  <span class="pull-left"> &copy; ONPG. </span> 
+ </small></p>
+</div>
+</div>
+<script src="../libs/jquery/jquery/dist/jquery.js"></script>
+<script src="../libs/jquery/bootstrap/dist/js/bootstrap.js"></script>
+<script src="js/ui-load.js"></script>
+<script src="js/ui-jp.config.js"></script>
+<script src="js/ui-jp.js"></script>
+<script src="js/ui-nav.js"></script>
+<script src="js/ui-toggle.js"></script>
+<script src="js/ui-client.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.min.js" integrity="sha256-tQ3x4V2JW+L0ew/P3v2xzL46XDjEWUExFkCDY0Rflqc=" crossorigin="anonymous"></script>
+</body>
+</html>

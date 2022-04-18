@@ -25,132 +25,121 @@
    <div class="panel-heading"> Documents à fournir </div>
        
     
-    <form class="well form-horizontal" action=" " method="post"  id="contact_form">
+    <form class="well form-horizontal" th:action="@{addInscrip2(id=${inscrip.idInscrip})}" enctype="multipart/form-data" method="post"  id="contact_form">
 <fieldset>
 
 <!-- Form Name -->
 
 <!-- Text input-->
 
+<input type="text" th:value="${inscrip.idInscrip}" >
 
   
 
-<div class="form-group">
-  <label class="col-md-4 control-label">Copie légalisée de l'attestation du diplome :</label>  
-    <div class="col-md-6 inputGroupContainer">
-    <div class="input-group">
-        <span class="input-group-addon"><i class="glyphicon glyphicon-file"></i></span>
-  <input name="contact_no" placeholder="Entrez le nombre d'année de cours" class="form-control" type="file">
-    </div>
-  </div>
-</div>
 <div class="form-group">
   <label class="col-md-4 control-label">Copie légalisée du diplome de doctorat en pharmacie (Consulat et UOBO):</label>  
     <div class="col-md-6 inputGroupContainer">
     <div class="input-group">
         <span class="input-group-addon"><i class="glyphicon glyphicon-file"></i></span>
-  <input name="contact_no" placeholder="Entrez le nombre d'année de cours" class="form-control" type="file">
+  <input  placeholder="Entrez le nombre d'année de cours" class="form-control" name="diplomeFile" type="file">
     </div>
   </div>
 </div>
+
 <div class="form-group">
-  <label class="col-md-4 control-label">Un exemplaire de la thèse :</label>  
+  <label class="col-md-4 control-label">Attestation diplome :</label>  
     <div class="col-md-6 inputGroupContainer">
     <div class="input-group">
         <span class="input-group-addon"><i class="glyphicon glyphicon-file"></i></span>
-  <input name="contact_no" placeholder="Entrez le nombre d'année de cours" class="form-control" type="file">
+  <input  placeholder="Entrez le nombre d'année de cours" class="form-control" name="AttestationDiplomeFile" required type="file">
     </div>
   </div>
-</div>
-<div class="form-group">
-  <label class="col-md-4 control-label">Un casier judiciaire :</label>  
+</div><div class="form-group">
+  <label class="col-md-4 control-label">Thèse :</label>  
     <div class="col-md-6 inputGroupContainer">
     <div class="input-group">
         <span class="input-group-addon"><i class="glyphicon glyphicon-file"></i></span>
-  <input name="contact_no" placeholder="Entrez le nombre d'année de cours" class="form-control" type="file">
+  <input  placeholder="Entrez le nombre d'année de cours" class="form-control" name="theseFile" required type="file">
     </div>
   </div>
-</div>
-<div class="form-group">
-  <label class="col-md-4 control-label">Curriculum professionnel  :</label>  
+</div><div class="form-group">
+  <label class="col-md-4 control-label">Casier Judiciare:</label>  
     <div class="col-md-6 inputGroupContainer">
     <div class="input-group">
         <span class="input-group-addon"><i class="glyphicon glyphicon-file"></i></span>
-  <input name="contact_no" placeholder="Entrez le nombre d'année de cours" class="form-control" type="file">
+  <input  placeholder="Entrez le nombre d'année de cours" class="form-control" name="casierJudicaireFile" required type="file">
     </div>
   </div>
-</div>
-<div class="form-group">
-  <label class="col-md-4 control-label">Deux (2) photos d'identité couleur + spécimen de signature":</label>  
+</div><div class="form-group">
+  <label class="col-md-4 control-label">CVFile:</label>  
     <div class="col-md-6 inputGroupContainer">
     <div class="input-group">
         <span class="input-group-addon"><i class="glyphicon glyphicon-file"></i></span>
-  <input name="contact_no" placeholder="Entrez le nombre d'année de cours" class="form-control" type="file">
+  <input  placeholder="Entrez le nombre d'année de cours" class="form-control" name="CVFile" required type="file">
     </div>
   </div>
-</div>
-<div class="form-group">
-  <label class="col-md-4 control-label">Photocopie de la pièce d'identité ou passeport :</label>  
+</div><div class="form-group">
+  <label class="col-md-4 control-label">PhotosFile:</label>  
     <div class="col-md-6 inputGroupContainer">
     <div class="input-group">
         <span class="input-group-addon"><i class="glyphicon glyphicon-file"></i></span>
-  <input name="contact_no" placeholder="Entrez le nombre d'année de cours" class="form-control" type="file">
+  <input  placeholder="Entrez le nombre d'année de cours" class="form-control" name="PhotosFile" required type="file">
     </div>
   </div>
-</div>
-<div class="form-group">
-  <label class="col-md-4 control-label">Photocopie de la carte de séjour pour les non gabonais :</label>  
+</div><div class="form-group">
+  <label class="col-md-4 control-label">pieceIdentiteFile:</label>  
     <div class="col-md-6 inputGroupContainer">
     <div class="input-group">
         <span class="input-group-addon"><i class="glyphicon glyphicon-file"></i></span>
-  <input name="contact_no" placeholder="Entrez le nombre d'année de cours" class="form-control" type="file">
+  <input  placeholder="Entrez le nombre d'année de cours" class="form-control" name="pieceIdentiteFile" required type="file">
     </div>
   </div>
-</div>
-<div class="form-group">
-  <label class="col-md-4 control-label">Copie légalisée de l'acte de naissance  :</label>  
+</div><div class="form-group">
+  <label class="col-md-4 control-label">Carte de Sejour:</label>  
     <div class="col-md-6 inputGroupContainer">
     <div class="input-group">
         <span class="input-group-addon"><i class="glyphicon glyphicon-file"></i></span>
-  <input name="contact_no" placeholder="Entrez le nombre d'année de cours" class="form-control" type="file">
+  <input  placeholder="Entrez le nombre d'année de cours" class="form-control" name="carteSejourFile" type="file">
     </div>
   </div>
-</div>
-<div class="form-group">
-  <label class="col-md-4 control-label">Attestation de radiation ou de suspension du pays de provenance pour ceux ayant été
-  inscrits à l'extèrieur du Gabon :</label>  
+</div><div class="form-group">
+  <label class="col-md-4 control-label">acteNaissanceFile:</label>  
     <div class="col-md-6 inputGroupContainer">
     <div class="input-group">
         <span class="input-group-addon"><i class="glyphicon glyphicon-file"></i></span>
-  <input name="contact_no" placeholder="Entrez le nombre d'année de cours" class="form-control" type="file">
+  <input  placeholder="Entrez le nombre d'année de cours" class="form-control" name="acteNaissanceFile" required type="file">
     </div>
   </div>
-</div>
-<div class="form-group">
-  <label class="col-md-4 control-label">Attestation de non exercice pour ceux n'ayant jamais exercé dans le pays d'origine :</label>  
+</div><div class="form-group">
+  <label class="col-md-4 control-label">attestattionRadidationFile:</label>  
     <div class="col-md-6 inputGroupContainer">
     <div class="input-group">
         <span class="input-group-addon"><i class="glyphicon glyphicon-file"></i></span>
-  <input name="contact_no" placeholder="Entrez le nombre d'année de cours" class="form-control" type="file">
+  <input  placeholder="Entrez le nombre d'année de cours" class="form-control" name="attestattionRadidationFile" type="file">
     </div>
   </div>
-</div>
-<div class="form-group">
-  <label class="col-md-4 control-label">Attestation d'emploi dans le cas ou le demandeur travaille déja :</label>  
+</div><div class="form-group">
+  <label class="col-md-4 control-label">attestationNonExerciceFile:</label>  
     <div class="col-md-6 inputGroupContainer">
     <div class="input-group">
         <span class="input-group-addon"><i class="glyphicon glyphicon-file"></i></span>
-  <input name="contact_no" placeholder="Entrez le nombre d'année de cours" class="form-control" type="file">
+  <input  placeholder="Entrez le nombre d'année de cours" class="form-control" name="attestationNonExerciceFile" type="file">
     </div>
   </div>
-</div>
-<div class="form-group">
-  <label class="col-md-4 control-label">Traduction en francais du cursus universitaire pour ceux ayant étudié dans un pays
-  non francophone avec l'homologation correspondante (UOBO):</label>  
+</div><div class="form-group">
+  <label class="col-md-4 control-label">attestationEmploieFile:</label>  
     <div class="col-md-6 inputGroupContainer">
     <div class="input-group">
         <span class="input-group-addon"><i class="glyphicon glyphicon-file"></i></span>
-  <input name="contact_no" placeholder="Entrez le nombre d'année de cours" class="form-control" type="file">
+  <input  placeholder="Entrez le nombre d'année de cours" class="form-control" name="attestationEmploieFile" required type="file">
+    </div>
+  </div>
+</div><div class="form-group">
+  <label class="col-md-4 control-label">traductionFile:</label>  
+    <div class="col-md-6 inputGroupContainer">
+    <div class="input-group">
+        <span class="input-group-addon"><i class="glyphicon glyphicon-file"></i></span>
+  <input  placeholder="Entrez le nombre d'année de cours" class="form-control" name="traductionFile" type="file">
     </div>
   </div>
 </div>

@@ -5,21 +5,30 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class PubliScientEntity {
 
 	@Id
+	@GeneratedValue
 	private Long idPubli;
 	@Column(length = 40)
 	private String Auteur;
 	@Column(length = 100)
 	private String sujet ;
 	@Column(length = 100)
+	
+	private String pathDoc;
+	
 	private String doc;
+	
 	private Date datePubli;
 	
+	@ManyToOne
+	private Users users;
 	
 	public PubliScientEntity() {
 		super();
@@ -62,6 +71,18 @@ public class PubliScientEntity {
 		this.datePubli = datePubli;
 	} 
 	
+	public String getPathDoc() {
+		return pathDoc;
+	}
+	public void setPathDoc(String pathDoc) {
+		this.pathDoc = pathDoc;
+	}
+	public Users getUsers() {
+		return users;
+	}
+	public void setUsers(Users users) {
+		this.users = users;
+	}
 	
 	
 }

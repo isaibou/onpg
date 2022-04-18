@@ -10,13 +10,12 @@
   <link rel="stylesheet" href="../libs/assets/simple-line-icons/css/simple-line-icons.css" type="text/css" />
   <link rel="stylesheet" href="../libs/jquery/bootstrap/dist/css/bootstrap.css" type="text/css" />
   <link rel="stylesheet" href="css/font.css" type="text/css" />
-  <link rel="stylesheet" href="css/app.css" type="text/css" />
     <link rel="stylesheet" href="css/ibe.css" type="text/css" />
   
   
   
 </head>
-<body background="blue">
+<body  id="ibrahim">
  
 <div style="margin:50px;"></div>
 <div class="col-md-6 col-sm-6 col-xs-12 spacer col-md-offset-3">
@@ -25,7 +24,7 @@
    <div class="panel-heading"> Informations personnelles </div>
        
     
-    <form class="well form-horizontal" action="insO2" method="post"  id="contact_form">
+    <form class="well form-horizontal" th:action="@{addInscrip}" method="post" enctype="multipart/form-data"  th:object="${inscrip}">
 <fieldset>
 
 <!-- Form Name -->
@@ -37,7 +36,7 @@
   <div class="col-md-6 inputGroupContainer">
   <div class="input-group">
   <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-  <input  name="first_name" placeholder="Entrez votre nom" class="form-control"  type="text">
+  <input  name="nom" placeholder="Entrez votre nom" class="form-control"  type="text">
     </div>
   </div>
 </div>
@@ -49,32 +48,12 @@
     <div class="col-md-6 inputGroupContainer">
     <div class="input-group">
   <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-  <input name="last_name" placeholder="Entrez votre prénom" class="form-control"  type="text">
+  <input name="prenom" placeholder="Entrez votre prénom" class="form-control"  type="text">
     </div>
   </div>
 </div>
 
-  <!-- <div class="form-group"> 
-  <label class="col-md-4 control-label">Department / Office</label>
-    <div class="col-md-4 selectContainer">
-    <div class="input-group">
-        <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
-    <select name="department" class="form-control selectpicker">
-      <option value="">Select your Department/Office</option>
-      <option>Department of Engineering</option>
-      <option>Department of Agriculture</option>
-      <option >Accounting Office</option>
-      <option >Tresurer's Office</option>
-      <option >MPDC</option>
-      <option >MCTC</option>
-      <option >MCR</option>
-      <option >Mayor's Office</option>
-      <option >Tourism Office</option>
-    </select>
-  </div>
-</div>
-</div> -->
-  
+
 <!-- Text input-->
 
 <div class="form-group">
@@ -82,22 +61,12 @@
   <div class="col-md-6 inputGroupContainer">
   <div class="input-group">
   <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-  <input  name="user_name" placeholder="Entrez votre nationalité" class="form-control"  type="text">
+  <input  name="nationalite" placeholder="Entrez votre nationalité" class="form-control"  type="text">
     </div>
   </div>
 </div>
 
-<!-- Text input-->
 
-<!-- <div class="form-group">
-  <label class="col-md-4 control-label" >Password</label> 
-    <div class="col-md-4 inputGroupContainer">
-    <div class="input-group">
-  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-  <input name="user_password" placeholder="Password" class="form-control"  type="password">
-    </div>
-  </div>
-</div> -->
 
 <!-- Text input-->
 
@@ -106,7 +75,7 @@
     <div class="col-md-6 inputGroupContainer">
     <div class="input-group">
   <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
-  <input name="confirm_password" placeholder="Entrez votre adresse" class="form-control"  type="text">
+  <input name="adresse" placeholder="Entrez votre adresse" class="form-control"  type="text">
     </div>
   </div>
 </div>
@@ -117,7 +86,7 @@
     <div class="col-md-6 inputGroupContainer">
     <div class="input-group">
         <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
-  <input name="email" placeholder="E-Mail Address" class="form-control"  type="date">
+  <input name="dateInscrip" placeholder="E-Mail Address" class="form-control"  type="date">
     </div>
   </div>
 </div>
@@ -130,7 +99,7 @@
     <div class="col-md-6 inputGroupContainer">
     <div class="input-group">
         <span class="input-group-addon"><i class="glyphicon glyphicon-education"></i></span>
-  <input name="contact_no" placeholder="Entrez votre lieu d'étude" class="form-control" type="text">
+  <input name="lieu" placeholder="Entrez votre lieu d'étude" class="form-control" type="text">
     </div>
   </div>
 </div>
@@ -139,15 +108,16 @@
     <div class="col-md-6 inputGroupContainer">
     <div class="input-group">
         <span class="input-group-addon"><i class="glyphicon glyphicon-font"></i></span>
-  <input name="contact_no" placeholder="Entrez le nombre d'année de cours" class="form-control" type="number">
+  <input name="nbAnnee" placeholder="Entrez le nombre d'année de cours" class="form-control" type="number">
     </div>
   </div>
-</div><div class="form-group">
+</div>
+<div class="form-group">
   <label class="col-md-4 control-label">Commentaires :</label>  
     <div class="col-md-6 inputGroupContainer">
     <div class="input-group">
         <span class="input-group-addon"><i class="glyphicon glyphicon-align-left"></i></span>
-  <textarea rows="" cols="" placeholder="Entrez vos commentaires" ></textarea>
+  <textarea rows="3" cols="" name="commentaires" placeholder="Entrez vos commentaires" ></textarea>
     </div>
   </div>
 </div>

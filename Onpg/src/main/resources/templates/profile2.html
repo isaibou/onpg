@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <!-- basic -->
+   <meta charset="utf-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <!-- mobile metas -->
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+   <!-- site metas -->
+   <title>Auricle - The Multi-Purpose Responsive HTML5 Template</title>
+   <meta name="keywords" content="">
+   <meta name="description" content="">
+   <meta name="author" content="">
+   <!-- site icons -->
+   <link rel="icon" href="images/fevicon/fevicon.png" type="image/png" />
+   <!-- bootstrap css -->
+   <link rel="stylesheet" href="css/bootstrap.min.css" />
+   <!-- site css -->
+   <link rel="stylesheet" href="css/style.css" />
+   <!-- responsive css -->
+   <link rel="stylesheet" href="css/responsive.css" />
+   <!-- colors css -->
+   <link rel="stylesheet" href="css/colors.css" />
+   <!-- wow animation css -->
+   <link rel="stylesheet" href="css/animate.css" />
+   <link rel="stylesheet" href="css/table.css" />
+   <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+      <![endif]-->
+      
+
+</head>
+
+<body id="default_theme" class="home_page1">
+   <!-- header -->
+   <header class="header header_style1">
+      <div class="container">
+         <div class="row">
+            <div class="col-md-9 col-lg-10">
+               <div class="logo"><a href="index.html"><img src="images/logoONPG.jpeg" height="60px" width="50px" alt="#" /></a></div>
+               <div class="main_menu float-right">
+                  <div class="menu">
+                     <ul class="clearfix">
+                      <li ><a href="index">Acceuil</a></li>
+                        <li ><a href="presentation">A propos</a></li>
+                        <li><a href="inscriptionO">Inscription</a></li>
+                        <li><a href="forum">Forum</a></li>
+                        <li><a href="publication">Publications</a></li>
+                        <li class="active"><a href="paiement">Paiement</a></li>
+                        <li  ><a href="membres">Tableau</a></li>
+                        
+                     </ul>
+                  </div>
+               </div>
+            </div>
+            <div class="col-md-3 col-lg-2">
+               <div class="right_bt"><a class="bt_main" href="login1">Se connecter</a> </div>
+            </div>
+         </div>
+      </div>
+   </header>
+    <section id="banner_parallax" class="inner_page_banner slide_banner1">
+      <div class="container">
+         <div class="row">
+            <div class="col-md-12">
+               <div class="full">
+                  <div class="slide_cont">
+                     <h2>PAIEMENT</h2>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </section>
+ <div id="content" class="app-content" role="main">
+ <div class="app-content-body ">
+  <div class="hbox hbox-auto-xs hbox-auto-sm">
+   <div class="col">
+	<div class="text-white" style="background:url(img/grf-bg.jpg) center center; background-size:cover;">
+	 <div class="wrapper-lg">
+	  <div class="row m-t">
+	   <div class="col-sm-7">
+		<a href class="thumb-lg pull-left m-r">
+<!-- 		 <img  th:src="@{getPhoto(id=${user.username})}"  class="img-circle">
+ -->		</a>
+		<div class="">
+		 <div class="m-b m-t-sm" style="padding-top:20px;">
+		  <span class="h3 text-white" th:text ="   ${user.nom   } + . +  ${user.prenom   }   " ></span>
+		  <p><small class="m-l"  ></small></p>
+		 </div>
+		</div>
+	   </div>
+	 <!--   <div class="col-sm-5">
+		<div class="pull-right pull-none-xs text-center">
+		 <a href class="m-b-md inline m">
+		  <span class="h3 block font-bold">22</span><small>Projects</small>
+		 </a>
+		 <a href class="m-b-md inline m">
+		  <span class="h3 block font-bold">10</span><small>Request</small>
+		 </a>
+        </div>
+	   </div> -->
+      </div>
+	 </div>
+	</div>
+	<!-- <div class="wrapper bg-white b-b">
+	 <ul class="nav nav-pills nav-sm">
+	  <li class="active"><a href="#tab_default_1" data-toggle="tab">Settings</a></li>
+	  <li><a href="#tab_default_2" data-toggle="tab">Messages</a></li> 
+	 </ul>
+	</div> -->
+<div class="col-md-6 col-sm-6 col-xs-12 spacer col-md-offset-3">
+	<div class="padder " style="margin:50px;" >      
+	 <div class="panel panel-default" >
+      <div class="panel-heading"> Modification du mot de passe  </div>
+	  <form th:action="@{changePassword}" th:object="${user}">
+	   <div class="panel-body">
+	   <div class="text-danger" th:if="${error}">
+		 <div th:text="${error}"></div>
+			</div>
+			  <div style="color:green;" th:if="${succes}">
+		 <div th:text="${succes}"></div>
+			</div>
+			
+		<div class="col-xs-4" ><label ><b>Nom :</b></label></div>
+		 <div class="col-sm-8"  >
+		  <input type="text" class="form-control"   disabled  th:field="*{nom}"/>
+		 </div>
+         <div class="col-xs-4" ><label ><b>Prénom :</b></label></div>
+		 <div class="col-sm-8"  >
+		  <input type ="text" class="form-control" name="Phone" id="input-pass" disabled th:field="*{prenom}"/>
+		 </div>
+		 <div class="col-xs-4"><label >Mot de passe  :</label></div>
+		 <div class="col-sm-8">
+		  <input class="form-control"  type="password"  id="input-phone" name="pass"  th:field="*{mdp}"/>
+		 </div>
+		 <div class="col-xs-4"><label >Confirmer mot de passe : </label></div>
+		 <div class="col-sm-8">
+		  <input class="form-control"  type="password"   id="input-phone"  name="confirm"/>
+		 </div>
+	   <div style="margin: 5px 0px;">
+	     <button id="btnupdt" style="margin-top:12px;margin-left:5px;" class="btn m-b-xs btn-sm btn-info btn-addon pull-right" onclick=""><i class="glyphicon  glyphicon-cog"></i> Modifier</button>   
+	   </div>
+	    </div>
+       </form> 
+       </div>
+      </div>
+	 </div>
+	</div>
+   </div>
+  </div>
+ </div>
+ 
+   <!-- end section -->
+   <!-- section -->
+   <!-- end section -->
+   <!-- footer -->
+   <footer class="footer_style_2">
+
+      <!-- footer bottom -->
+      <div class="footer_bottom">
+         <p>Dessigned and developed by <strong>html.design</strong></p>
+      </div>
+   </footer>
+   <!-- end footer -->
+   <!--=========== js section ===========-->
+   <!-- jQuery (necessary for Bootstrap's JavaScript) -->
+   <script src="js/jquery.min.js"></script>
+   <script src="js/popper.min.js"></script>
+   <script src="js/bootstrap.min.js"></script>
+   <!-- wow animation -->
+   <script src="js/wow.js"></script>
+   <!-- custom js -->
+   <script src="js/custom.js"></script>
+   <!-- google map js -->
+   <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8eaHt9Dh5H57Zh0xVTqxVdBFCvFMqFjQ&callback=initMap"></script>
+   <!-- end google map js -->
+</body>
+
+</html>

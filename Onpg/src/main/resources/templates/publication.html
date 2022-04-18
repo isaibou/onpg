@@ -9,7 +9,7 @@
    <meta name="viewport" content="width=device-width, initial-scale=1">
    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
    <!-- site metas -->
-   <title>Auricle - The Multi-Purpose Responsive HTML5 Template</title>
+   <title>Publication ONPG</title>
    <meta name="keywords" content="">
    <meta name="description" content="">
    <meta name="author" content="">
@@ -19,7 +19,7 @@
 <link rel="stylesheet" href="../libs/assets/simple-line-icons/css/simple-line-icons.css" type="text/css" />
 <link rel="stylesheet" href="../libs/jquery/bootstrap/dist/css/bootstrap.css" type="text/css" />
    <!-- site icons -->
-   <link rel="icon" href="images/fevicon/fevicon.png" type="image/png" />
+   <link rel="icon" href="images/fevicon/logoGo.png" type="image/png" />
    <!-- bootstrap css -->
    <link rel="stylesheet" href="css/bootstrap.min.css" />
    <!-- site css -->
@@ -42,16 +42,16 @@
       <div class="container">
          <div class="row">
             <div class="col-md-9 col-lg-10">
-               <div class="logo"><a href="index.html"><img src="images/logoONPG.jpeg" width="50px" alt="#" /></a></div>
+               <div class="logo"><a href="index.html"><img src="images/logoONPG.jpeg" height="60px" width="50px" alt="#" /></a></div>
                <div class="main_menu float-right">
                   <div class="menu">
                      <ul class="clearfix">
                         <li ><a href="index">Acceuil</a></li>
                         <li ><a href="presentation">A propos</a></li>
                         <li><a href="inscriptionO">Inscription</a></li>
-                        <li><a href="forum">Forum</a></li>
-                        <li class="active"><a href="publication">Publications</a></li>
-                        <li ><a href="paiement">Paiement</a></li>
+                         <li th:if="${connected} == true"><a href="forum">Forum</a></li>
+                        <li class="active"><a href="publication" >Publications</a></li>
+                        <li th:if="${connected} == true"><a href="paiement">Paiement</a></li>
                         <li ><a href="membres">Tableau</a></li>
                         
                      </ul>
@@ -59,7 +59,8 @@
                </div>
             </div>
             <div class="col-md-3 col-lg-2">
-               <div class="right_bt"><a class="bt_main" href="login1">Se connecter</a> </div>
+               <div th:if="${connected} == false" class="right_bt"><a class="bt_main" href="login1">Connexion</a> </div>
+               <div th:if="${connected} == true" class="right_bt"><a class="bt_main" href="logout">Déconnexion</a> </div>
             </div>
          </div>
       </div>
@@ -71,6 +72,7 @@
                <div class="full">
                   <div class="slide_cont">
                      <h2>PUBLICATIONS</h2>
+                     <a th:if="${connected} == true" href="addPubli"> Ajouter une publication </a>
                   </div>
                </div>
             </div>
@@ -87,8 +89,11 @@
 	  <div class="tab-content" >
 	 <div class="tab-pane active" id="tab_default_1" style="padding:20px 15px;margin:0px 2px;border-top:2px #19a9d5 solid;background-color:white;">
 	  <div class="panel panel-default">
-       <div class="table-responsive">
-	Les différents textes règlementaires
+       <div th:each="t:${allTextes}" class="table-responsive">
+			<p th:text = "${t.texte}"> </p> 
+			<a th:href="@{viewTexte(id=${t.id})}" 
+			   th:text = "${t.fileName}"></a>
+			 <br>
       </div>
      </div>
 	</div>
@@ -100,7 +105,7 @@
 												
 												{ pData: 'Name ' },
 												{ pData: 'Login' },
-												{ pData: 'Company' },
+												{ pData: 'action' },
 												{ pData: 'Statut' }]
 											}" class="table  b-t b-b">
 		<thead>
@@ -109,21 +114,19 @@
 		  <th  style="width:16%"><center>Auteur</center></th>
 		  <th  style="width:15%"><center>Sujet</center></th>
 	      <th  style="width:15%"><center>Date</center></th>
-		  <th  style="width:15%"><center>Actions</center></th>
+	      <th  style="width:15%"><center>Telecharger</center></th>
 		 </tr>
 		</thead>
 		<tbody>
-	 <tr sec:authorize="hasRole('ROLE_ADMIN')" data-expanded="true" th:each="u:${allPubli}">
+	 <tr  data-expanded="true" th:each="u:${allPubli}">
 	
-          <td th:text ="${u.auteur}"><center></center></td>
+          <td th:text ="${u.users.nom}+.+${u.users.prenom}"><center></center></td>
           <td th:text = "${u.sujet}"><center><center><span class="label bg-danger pull-center m-t-md"></span></center></center></td>
-		  <td th:text = "${u.datePubli}"></td> 
-		   <td><center>
+		  <td th:text="${#dates.format(u.datePubli, 'dd-MM-yyyy')}"></td> 
+  <td><center>
     <button class="btn btn-default btn-xs">
-     <i class="glyphicon glyphicon-cog"></i> <a th:href="f"> Télécharger</a> </button></center></td>
-    
-		
-		 </tr>
+     <i class="glyphicon glyphicon-cog"></i> <a th:href="@{viewPublication(id=${u.idPubli})}"> Télécharger</a> </button></center></td>
+     		 </tr>
 	</tbody>
 	   </table>
       </div>
@@ -138,7 +141,6 @@
 												
 												{ pData: 'Name ' },
 												{ pData: 'Login' },
-												{ pData: 'Company' },
 												{ pData: 'Statut' }]
 											}" class="table  b-t b-b">
 		<thead>
@@ -147,7 +149,6 @@
 		  <th  style="width:40%"><center>Description de l'offre</center></th>
 		  <th  style="width:15%"><center>Salaire</center></th>
 	      <th  style="width:20%"><center>Entreprise</center></th>
-	      <th  style="width:15%"><center>Horaire</center></th>
 	      
 		 </tr>
 		</thead>
@@ -157,7 +158,6 @@
           <td th:text ="${o.description}"><center></center></td>
           <td th:text = "${o.salaire}"><center><center><span class="label bg-danger pull-center m-t-md"></span></center></center></td>
 		  <td th:text = "${o.entreprise}"></td>
-		  <td th:text = "${o.disponibilite}"></td>
 	
 		 </tr>
 	</tbody>

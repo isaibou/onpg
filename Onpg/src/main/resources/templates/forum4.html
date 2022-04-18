@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
 
 <head>
    <!-- basic -->
@@ -14,7 +14,7 @@
    <meta name="description" content="">
    <meta name="author" content="">
    <!-- site icons -->
-   <link rel="icon" href="images/fevicon/fevicon.png" type="image/png" />
+   <link rel="icon" href="images/fevicon/logoGo.png" type="image/png" />
    <!-- bootstrap css -->
    <link rel="stylesheet" href="css/bootstrap.min.css" />
    <!-- site css -->
@@ -48,7 +48,7 @@
       <div class="container">
          <div class="row">
             <div class="col-md-9 col-lg-10">
-               <div class="logo"><a href="index.html"><img src="images/logoONPG.jpeg" width="50px" alt="#" /></a></div>
+               <div class="logo"><a href="index.html"><img src="images/logoONPG.jpeg" width="50px" height="60px" alt="#" /></a></div>
                <div class="main_menu float-right">
                   <div class="menu">
                      <ul class="clearfix">
@@ -65,8 +65,9 @@
                </div>
             </div>
             <div class="col-md-3 col-lg-2">
-               <div class="right_bt"><a class="bt_main" href="login1">Se connecter</a> </div>
-            </div>
+			   <div th:if="${connected} == false" class="right_bt"><a class="bt_main" href="login1">Connexion</a> </div>
+               <div th:if="${connected} == true" class="right_bt"><a class="bt_main" href="logout">Déconnexion</a> </div>
+                       </div>
          </div>
       </div>
    </header>
@@ -90,42 +91,29 @@
 <!-- Blog entries -->
 <div class="w3-col l8 s12">
   <!-- Blog entry -->
-  <div class="w3-card-4 w3-margin w3-white">
+  <div class="w3-card-4 w3-margin w3-white" th:each="s:${sujets}">
 <!--     <img src="/w3images/woods.jpg" alt="Nature" style="width:100%">
  -->    <div class="w3-container">
-      <h3><b>Mise en palce du site de l'ONPG</b></h3>
-      <h5>Dr A, <span class="w3-opacity">8 Avril, 2014</span></h5>
+      <h3 th:text = "${s.titre}"
+      ><b></b></h3>
+      <h5 th:text = "${s.users.nom} +.+ ${s.users.prenom} "></h5>
+      <span class="w3-opacity" th:text="${#dates.format(s.date, 'dd-MM-yyyy HH:mm')}"></span>
     </div>
 
     <div class="w3-container">
-      <p>Un site internet permet de vous positionner comme un expert dans votre secteur d'activité & 
-						d'attirer 55% de visiteurs en plus. Proposer du contenu qualitatif aux visiteurs de votre site 
-						internet permet d'instaurer
-						une relation de confiance et de vous positionner comme une référence dans votre domaine.</p>
+      <p th:text = "${s.intitule}"></p>
       <div class="w3-row">
         <div class="w3-col m8 s12">
-          <p><button class="w3-button w3-padding-large w3-white w3-border"><b>PLUS »</b></button></p>
+          <p><button  type="submit" class=  "w3-button w3-padding-large w3-white w3-border"> <a th:href="@{comments(id=${s.idSujet})}"> <b>PLUS »</b></a></button></p>
         </div>
         <div class="w3-col m4 w3-hide-small">
-          <p><span class="w3-padding-large w3-right"><b>Commentaires  </b> <span class="w3-tag">3</span></span></p>
+          <p><span class="w3-padding-large w3-right"><b>Commentaires  </b> <span class="w3-tag"  ></span></span></p>
         </div>
       </div>
     </div>
   </div>
   <hr>
-  <h5>Reponse 1, <span class="w3-opacity">April 7, 2014</span>, <span class="w3-opacity">Dr B</span></h5>
-  <p> Je suis pour la mise en place du site et j'aimerai qu'il y ai 
-						aussi un onglet à travers lequel nous pouvons communiquer.</p>
-    <hr>
-  <h5>Reponse 2, <span class="w3-opacity">April 7, 2014</span>, <span class="w3-opacity">Dr C</span></h5>
-  <p>C'est une bonne idée. Il faudrai  aussi mettre en place 
-						le paiement des cotisations en ligne.</p>
-    <hr>
-  <h5>Reponse 3, <span class="w3-opacity">April 7, 2014</span>, <span class="w3-opacity">Dr D</span></h5>
-  <p>Je suis soutiens cette idée. Pensons aussi à l'inscription en ligne.
-						Aisni, plus besoin de se rendre au siège pour s'inscrire.</p>
-    <hr>
-
+ 
 
     <div class="form-floating">
       <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>

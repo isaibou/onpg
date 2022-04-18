@@ -9,12 +9,12 @@
    <meta name="viewport" content="width=device-width, initial-scale=1">
    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
    <!-- site metas -->
-   <title>Auricle - The Multi-Purpose Responsive HTML5 Template</title>
+   <title>A propos ONPG </title>
    <meta name="keywords" content="">
    <meta name="description" content="">
    <meta name="author" content="">
    <!-- site icons -->
-   <link rel="icon" href="images/fevicon/fevicon.png" type="image/png" />
+   <link rel="icon" href="images/fevicon/logoGo.png" type="image/png" />
    <!-- bootstrap css -->
    <link rel="stylesheet" href="css/bootstrap.min.css" />
    <!-- site css -->
@@ -40,7 +40,7 @@
       <div class="container">
          <div class="row">
             <div class="col-md-9 col-lg-10">
-               <div class="logo"><a href="index.html"><img src="images/logoONPG.jpeg" width="50px" alt="#" /></a></div>
+               <div class="logo"><a href="index.html"><img src="images/logoONPG.jpeg" height="60px" width="50px" alt="#" /></a></div>
                <div class="main_menu float-right">
                   <div class="menu">
                      <ul class="clearfix">
@@ -48,9 +48,9 @@
                         <li ><a href="index">Acceuil</a></li>
                         <li class= "active"><a href="presentation">A propos</a></li>
                         <li><a href="inscriptionO">Inscription</a></li>
-                        <li><a href="forum">Forum</a></li>
+                        <li th:if="${connected} == true"><a href="forum">Forum</a></li>
                         <li><a href="publication">Publications</a></li>
-                        <li><a href="paiement">Paiement</a></li>
+                        <li th:if="${connected} == true"><a href="paiement">Paiement</a></li>
                         <li><a href="membres">Membres</a></li>
                      
                      </ul>
@@ -58,8 +58,9 @@
                </div>
             </div>
             <div class="col-md-3 col-lg-2">
-               <div class="right_bt"><a class="bt_main" href="login1">Se connecter</a> </div>
-            </div>
+ 			   <div th:if="${connected} == false" class="right_bt"><a class="bt_main" href="login1">Connexion</a> </div>
+               <div th:if="${connected} == true" class="right_bt"><a class="bt_main" href="logout">Déconnexion</a> </div>
+                       </div>
          </div>
       </div>
    </header>
@@ -343,7 +344,7 @@
          <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-6" style="padding:0;">
                <div class="full">
-                  <div id="map"></div>
+                <div class="mapouter"><div class="gmap_canvas"><iframe width="600" height="500" id="gmap_canvas" src="https://maps.google.com/maps?q=Libreville&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://www.whatismyip-address.com/divi-discount/">divi discount</a><br><style>.mapouter{position:relative;text-align:right;height:500px;width:600px;}</style><a href="https://www.embedgooglemap.net"></a><style>.gmap_canvas {overflow:hidden;background:none!important;height:500px;width:600px;}</style></div></div>
                </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-6" style="padding:0;">
@@ -356,24 +357,24 @@
                         <p>Envoyez-nous votre message et nous vous répondrons dans les plus brefs délais.</p>
                         <div class="form_contact">
                            <!-- form -->
-                           <form action="index.html">
+                           <form action="saveContact">
                               <fieldset>
                                  <div class="field">
-                                    <input type="text" name="name" placeholder="Entrez votre nom" required="" />
+                                    <input type="text" name="nom" placeholder="Entrez votre nom" required />
                                  </div>
                                  <div class="field">
-                                    <input type="text" name="name" placeholder="Entrez votre numéro de  téléphone"
-                                       required="" />
+                                    <input type="text" name="phone" placeholder="Entrez votre numéro de  téléphone"
+                                       required />
                                  </div>
                                  <div class="field">
-                                    <input type="email" name="email" placeholder="Entrez votre email" required="" />
+                                    <input type="email" name="email" placeholder="Entrez votre email" required/>
                                  </div>
                                  <div class="field">
-                                    <textarea name="messager" placeholder="Ecrivez votre message"
-                                       required=""></textarea>
+                                    <textarea name="message" placeholder="Ecrivez votre message"
+                                       required></textarea>
                                  </div>
                                  <div class="field">
-                                    <button class="field_bt">Envoyez</button>
+                                    <button class="field_bt">Envoyer</button>
                                  </div>
                               </fieldset>
                            </form>

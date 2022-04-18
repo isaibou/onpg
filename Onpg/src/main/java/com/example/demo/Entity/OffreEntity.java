@@ -2,12 +2,15 @@ package com.example.demo.Entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
 public class OffreEntity {
 	
-	@Id()
+	@Id
+	@GeneratedValue
 	private Long idOffre;
 	@Column(length = 255)
 	private String description;
@@ -17,6 +20,8 @@ public class OffreEntity {
 	private String entreprise;
 	@Column(length = 30)
 	private String disponibilite;
+	
+	private boolean actived;
 	
 	public Long getIdOffre() {
 		return idOffre;
@@ -66,6 +71,18 @@ public class OffreEntity {
 	}
 	public void setDisponibilite(String disponibilite) {
 		this.disponibilite = disponibilite;
+	}
+
+
+
+	public boolean isActived() {
+		return actived;
+	}
+
+
+
+	public void setActived(boolean actived) {
+		this.actived = actived;
 	}
 
 	
