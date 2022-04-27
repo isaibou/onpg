@@ -21,6 +21,8 @@ public class OffreEntity {
 	@Column(length = 30)
 	private String disponibilite;
 	
+	private String profil;
+	
 	private boolean actived;
 	
 	public Long getIdOffre() {
@@ -83,6 +85,18 @@ public class OffreEntity {
 
 	public void setActived(boolean actived) {
 		this.actived = actived;
+	}
+
+
+
+	public String getProfil() {
+		return profil;
+	}
+
+
+
+	public void setProfil(String profil) {
+		this.profil = profil;
 	}
 
 	

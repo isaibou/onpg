@@ -311,7 +311,7 @@
                             <span>Messages</span>
                         </a>
                     </li>
-                    <li class="active">
+                    <li>
                         <a href="offres">
                             <i class="material-icons">layers</i>
                             <span>Offres d'emploie</span>
@@ -363,7 +363,7 @@
                             </li>
                         </ul>
                     </li> -->
-                     <li>
+                    <li>
                         <a href="javascript:void(0);" class="menu-toggle">
                             <i class="material-icons">mode</i>
                             <span>Inscriptions</span>
@@ -385,7 +385,7 @@
                         </a>
                        
                     </li>
-                     <li  >
+                    <li  class="active">
                         <a th:href="texteReglementaire" >
                             <i class="material-icons">attach_money</i>
                             <span>Textes Reglementaires</span>
@@ -398,14 +398,13 @@
                         </a>
                        
                     </li>
-                    <li >
+                    <li>
                         <a th:href="admin">
                             <i class="material-icons">manage_accounts</i>
                             <span>Utilisateurs</span>
                         </a>
                       
                     </li>
-               
                
                 
                 
@@ -441,10 +440,19 @@
                     <div class="card">
                         <div class="header">
                             <h2>
-                            OFFRES
+                            UTILISATEURS
                             </h2>
                             <ul class="header-dropdown m-r--5">
-                             <a th:href="@{addOffre}"> Ajouter une offre</a>  
+                                <li class="dropdown">
+                                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                        <i class="material-icons">more_vert</i>
+                                    </a>
+                                    <ul class="dropdown-menu pull-right">
+                                        <li><a href="javascript:void(0);">Action</a></li>
+                                        <li><a href="javascript:void(0);">Another action</a></li>
+                                        <li><a href="javascript:void(0);">Something else here</a></li>
+                                    </ul>
+                                </li>
                             </ul>
                         </div>
                         <div class="body">
@@ -452,43 +460,17 @@
                                 <table class="table table-bordered table-striped table-hover dataTable js-exportable" >
                                     <thead>
                                         <tr>
-                                            <th>Description de l'offre</th>
-                                            <th>Salaire</th>
-                                            <th>Entreprise</th>
-                                            <th>Statut</th>
-                                            <th>Actions</th>
+                                            <th>Name</th>
+                                            <th>Action</th>
                                         </tr>
                                     </thead>
-                                    <tfoot>
-                                        <tr>
-                                            <th>Description de l'offre</th>
-                                            <th>Salaire</th>
-                                            <th>Entreprise</th>
-                                            <th>Statut</th>
-                                            <th>Actions</th>
-                                        </tr>
-                                    </tfoot>
+                                  
                                     <tbody>
-                                        <tr th:each="t:${offresAll}">
-                                            <td th:text="${t.description}"></td>
-                                            <td th:text="${t.salaire}"></td>
-                                            <td th:text="${t.entreprise}"></td>
-                                            <td >  <span th:if="${t.actived == true}" class="label bg-success pull-center m-t-md">Actif</span>
-   		   <span th:unless="${t.actived == true}" class="label bg-danger pull-center m-t-md">Pourvu</span>  <td>
-                                             <div class="btn-group dropdown">
-         <button class="btn btn-default btn-xs" data-toggle="dropdown"><i class="glyphicon glyphicon-cog"></i> Actions <span class="caret"></span></button>
-                                                   <ul class="dropdown-menu">
-																											
-																			<li>
-																					<a th:href="@{updateOffre(id=${t.idOffre})}"style="margin-top:-5px;"  class="btn btn-sm btn-light" role="button">Modifier</a>
-																						<a th:href="@{desactiverOffre(id=${t.idOffre})}"style="margin-top:-5px;"  class="btn btn-sm btn-light" role="button">Pourvoir</a>
-																																																										
-																												</li>
-																												
-																										</ul>
-</div>
-     </center>
-                                            </td>
+                                        <tr th:each="t:${allTexte}">
+                                            <td th:text="${t.texte}"></td>
+                                           
+                                            <td >  Bon </td>
+                                          
                                         </tr>
                                       
                                     </tbody>

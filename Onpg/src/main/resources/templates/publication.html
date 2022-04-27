@@ -72,7 +72,6 @@
                <div class="full">
                   <div class="slide_cont">
                      <h2>PUBLICATIONS</h2>
-                     <a th:if="${connected} == true" href="addPubli"> Ajouter une publication </a>
                   </div>
                </div>
             </div>
@@ -92,7 +91,7 @@
        <div th:each="t:${allTextes}" class="table-responsive">
 			<p th:text = "${t.texte}"> </p> 
 			<a th:href="@{viewTexte(id=${t.id})}" 
-			   th:text = "${t.fileName}"></a>
+			 >Télécharger ici.</a>
 			 <br>
       </div>
      </div>
@@ -120,8 +119,8 @@
 		<tbody>
 	 <tr  data-expanded="true" th:each="u:${allPubli}">
 	
-          <td th:text ="${u.users.nom}+.+${u.users.prenom}"><center></center></td>
-          <td th:text = "${u.sujet}"><center><center><span class="label bg-danger pull-center m-t-md"></span></center></center></td>
+          <td th:text ="${u.Auteur}"></td>
+          <td th:text = "${u.sujet}"><span class="label bg-danger pull-center m-t-md"></span></center></center></td>
 		  <td th:text="${#dates.format(u.datePubli, 'dd-MM-yyyy')}"></td> 
   <td><center>
     <button class="btn btn-default btn-xs">
@@ -147,7 +146,7 @@
 		 <tr>
 	
 		  <th  style="width:40%"><center>Description de l'offre</center></th>
-		  <th  style="width:15%"><center>Salaire</center></th>
+		  <th  style="width:15%"><center>Profil</center></th>
 	      <th  style="width:20%"><center>Entreprise</center></th>
 	      
 		 </tr>
@@ -156,7 +155,7 @@
 	 <tr  data-expanded="true"   th:each="o:${allOffre}">
 	
           <td th:text ="${o.description}"><center></center></td>
-          <td th:text = "${o.salaire}"><center><center><span class="label bg-danger pull-center m-t-md"></span></center></center></td>
+          <td th:text = "${o.profil}"><center><center><span class="label bg-danger pull-center m-t-md"></span></center></center></td>
 		  <td th:text = "${o.entreprise}"></td>
 	
 		 </tr>

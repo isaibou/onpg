@@ -307,11 +307,11 @@
                     </li>
                     <li>
                         <a th:href="message">
-                            <i class="material-icons">text_fields</i>
+                            <i class="material-icons">message</i>
                             <span>Messages</span>
                         </a>
                     </li>
-                    <li class="active">
+                    <li>
                         <a href="offres">
                             <i class="material-icons">layers</i>
                             <span>Offres d'emploie</span>
@@ -363,7 +363,7 @@
                             </li>
                         </ul>
                     </li> -->
-                     <li>
+                    <li>
                         <a href="javascript:void(0);" class="menu-toggle">
                             <i class="material-icons">mode</i>
                             <span>Inscriptions</span>
@@ -385,27 +385,26 @@
                         </a>
                        
                     </li>
-                     <li  >
+                    <li>
                         <a th:href="texteReglementaire" >
-                            <i class="material-icons">attach_money</i>
+                            <i class="material-icons">text_snippet</i>
                             <span>Textes Reglementaires</span>
                         </a>
                        
                     </li><li>
                         <a th:href="publicationAdmin" >
-                            <i class="material-icons">attach_money</i>
+                            <i class="material-icons">text_fields</i>
                             <span>Publications Scientifiques</span>
                         </a>
                        
                     </li>
-                    <li >
+                    <li>
                         <a th:href="admin">
                             <i class="material-icons">manage_accounts</i>
                             <span>Utilisateurs</span>
                         </a>
                       
                     </li>
-               
                
                 
                 
@@ -441,10 +440,10 @@
                     <div class="card">
                         <div class="header">
                             <h2>
-                            OFFRES
+                            PUBLICATIONS SCIENTIFIQUES
                             </h2>
-                            <ul class="header-dropdown m-r--5">
-                             <a th:href="@{addOffre}"> Ajouter une offre</a>  
+                           <ul class="header-dropdown m-r--5">
+                             <a th:href="@{addPubli}"> Ajouter une publication</a>  
                             </ul>
                         </div>
                         <div class="body">
@@ -452,43 +451,39 @@
                                 <table class="table table-bordered table-striped table-hover dataTable js-exportable" >
                                     <thead>
                                         <tr>
-                                            <th>Description de l'offre</th>
-                                            <th>Salaire</th>
-                                            <th>Entreprise</th>
-                                            <th>Statut</th>
-                                            <th>Actions</th>
+                                            <th>Auteur</th>
+                                            <th>Sujet</th>
+                                            <th>Date</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
                                         <tr>
-                                            <th>Description de l'offre</th>
-                                            <th>Salaire</th>
-                                            <th>Entreprise</th>
-                                            <th>Statut</th>
-                                            <th>Actions</th>
+                                            <th>Auteur</th>
+                                            <th>Sujet</th>
+                                            <th>Date</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
-                                        <tr th:each="t:${offresAll}">
-                                            <td th:text="${t.description}"></td>
-                                            <td th:text="${t.salaire}"></td>
-                                            <td th:text="${t.entreprise}"></td>
-                                            <td >  <span th:if="${t.actived == true}" class="label bg-success pull-center m-t-md">Actif</span>
-   		   <span th:unless="${t.actived == true}" class="label bg-danger pull-center m-t-md">Pourvu</span>  <td>
+                                        <tr th:each="t:${allPubli}">
+                                            <td th:text="${t.Auteur}"></td>
+                                            <td th:text="${t.sujet}"></td>
+									    	  <td th:text="${#dates.format(t.datePubli, 'dd-MM-yyyy')}"></td> 
+                                           
+                                       <!--      <td>
                                              <div class="btn-group dropdown">
-         <button class="btn btn-default btn-xs" data-toggle="dropdown"><i class="glyphicon glyphicon-cog"></i> Actions <span class="caret"></span></button>
+    										     <button class="btn btn-default btn-xs" data-toggle="dropdown"><i class="glyphicon glyphicon-cog"></i> Action <span class="caret"></span></button>
                                                    <ul class="dropdown-menu">
-																											
-																			<li>
-																					<a th:href="@{updateOffre(id=${t.idOffre})}"style="margin-top:-5px;"  class="btn btn-sm btn-light" role="button">Modifier</a>
-																						<a th:href="@{desactiverOffre(id=${t.idOffre})}"style="margin-top:-5px;"  class="btn btn-sm btn-light" role="button">Pourvoir</a>
-																																																										
-																												</li>
+														<li>
+															<a th:unless="${t.actived == true}" th:href="@{activerUser(id=${t.email})}"style="margin-top:-5px;"  class="btn btn-sm btn-light" role="button">Activer</a>
+															<a th:if="${t.actived == true}" th:href="@{desactiverUser(id=${t.email})}"style="margin-top:-5px;"  class="btn btn-sm btn-light" role="button">Désactiver</a>
+															<a th:href="@{addAdmin(id=${t.email})}"style="margin-top:-5px;"  class="btn btn-sm btn-light" role="button">Promouvoir ADMIN</a>
+															<a th:href="@{removeAdmin(id=${t.email})}"style="margin-top:-5px;"  class="btn btn-sm btn-light" role="button">Retirer ADMIN</a>
+														</li>
 																												
-																										</ul>
-</div>
+													</ul>
+												</div>
      </center>
-                                            </td>
+                                            </td> -->
                                         </tr>
                                       
                                     </tbody>

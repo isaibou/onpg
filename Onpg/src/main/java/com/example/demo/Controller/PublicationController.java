@@ -84,13 +84,12 @@ public class PublicationController {
 	
 	@RequestMapping(value="/addPublication")
 	public String addPublication(Authentication auth , PubliScientEntity publication, @RequestParam("file") MultipartFile file ) {
-		Users user = userRepository.getById(auth.getName());
-		publication.setUsers(user);
+		
 		publication.setDatePubli(new Date());
 		uploadS3.uploadPublication(publication, file);
 		publiScienRepository.save(publication);
 		
-		return"redirect:/publication";
+		return"redirect:/publicationAdmin";
 	}
 	
 	@RequestMapping(value="/viewPubli")
@@ -104,36 +103,18 @@ public class PublicationController {
 	}
 	
 	
-	@RequestMapping(value="/saveTexte")
-	public String uploadTexte(Authentication auth , TexteReglemantaire texte, @RequestParam("file") MultipartFile file ) {
-		uploadS3.uploadTexte(texte, file);
-		texteReglementaireRepository.save(texte);
 		
-		return"redirect:/publication";
-	}
-	
-	 @RequestMapping("/viewTexte")
-	    public void viewTexte(Long id,HttpServletResponse response) throws IOException {
-		 	TexteReglemantaire	 texte = texteReglementaireRepository.getById(id);
-		 	 String Path = texte.getPath();
-	    	String file = texte.getFileName();
-	    	viewFile( response, Path, file);
-	    }
-	    
-	
-	
 	@RequestMapping(value="/addPubli")
 	public String addPubli(Model model) {
 		model.addAttribute("publi", new PubliScientEntity());
 		return "addPubli";
 	}
-	
-	@RequestMapping(value="/addTexte")
-	public String addTexte(Model model) {
-		model.addAttribute("texte", new TexteReglemantaire());
-		return "addTexte";
+	@RequestMapping(value="/publicationAdmin")
+	public String publiAdmin(Model model) {
+		List<PubliScientEntity> allPubli = publiScienRepository.findAll();
+		model.addAttribute("allPubli", allPubli);
+		return "publicationAdmin";
 	}
-	
 	
 	
 

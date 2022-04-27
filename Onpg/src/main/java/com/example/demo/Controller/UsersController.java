@@ -3,6 +3,7 @@ package com.example.demo.Controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,6 +14,7 @@ import com.example.demo.Entity.Roles;
 import com.example.demo.Entity.Users;
 import com.example.demo.Repository.RoleRepository;
 import com.example.demo.Repository.UsersRepository;
+import com.example.demo.service.NotificationMail;
 
 @Controller
 public class UsersController {
@@ -25,6 +27,8 @@ public class UsersController {
 	UsersRepository userRepository;
 	@Autowired
 	RoleRepository rolesRepository;
+	@Autowired
+	NotificationMail notif;
 	
 	@RequestMapping("/inscriptionS")
 	public String InscreiotionS(Model model) {
@@ -40,10 +44,11 @@ public class UsersController {
 	
 
 	@RequestMapping("/saveUsers")
-	public String saveUsers(Model model, Users u, 
+	public String saveUsers(Model model, Users u, @RequestParam (name="mdp1") String mdp1,
 			@RequestParam (name="mdp2") String mdp2) {
-		String mdp1 = u.getMdp();
-		if (mdp1!=mdp2) {
+		System.out.println("mdp1"+mdp1);
+		System.out.println("mdp2"+mdp2);
+		if (!mdp1.equals(mdp2)) {
 			model.addAttribute("error", "Vérifier la conconrdance des mots de passe ou le choix de la spécialité");
 			List<Roles> allRoles = roleRepository.findAll();
 			model.addAttribute("user", u);
@@ -63,8 +68,7 @@ public class UsersController {
 		 * return"inscription2"; }
 		 */
 		
-		String mdp = u.getMdp();
-		String newmdp = encoder.encode(mdp);
+		String newmdp = encoder.encode(mdp1);
 		u.setMdp(newmdp);
 		u.setActived(false);
 		u.setIsNew(true);
@@ -108,6 +112,79 @@ public class UsersController {
 		return"redirect:/admin";
 	}
 	
+	
+	
+	@RequestMapping(value ="/forgotPassword" )
+	public String forgotPassword(Authentication authentication , Model model) {
+		
+		model.addAttribute("user", new Users());
+		return "forgotPassword";
+	}
+	
+	@RequestMapping(value ="/changePassword" )
+	public String changePassword(String password ,
+			@RequestParam(name="confirm") String confirm,@RequestParam(name="password") String pass, Authentication auth
+			,Model model) {
+		String login = auth.getName(); 
+		System.out.println("confirm " + confirm + " password" + pass );
+		Users u = userRepository.getOne(login);
+		
+		if(!confirm.isEmpty()&& !pass.isEmpty()) {
+			if (confirm.equals(pass)) {
+				u.setMdp(encoder.encode(pass));
+			}else { 
+				model.addAttribute("user",u);
+				model.addAttribute("error", "Password and Confirm Password must be Equal");
+				return "profile";	
+			}
+		}else {
+			model.addAttribute("user",u);
+			model.addAttribute("error", "Password and Confirm Password must not be Empty");
+			return "profile";
+		}
+		
+		userRepository.save(u);
+		return "redirect:/profile";
+	}
+	
+	@RequestMapping(value ="/resetPassword" )
+	public String resetPassword(@RequestParam(name="email") String email) {
+		System.out.println(email);
+		Users u = userRepository.getOne(email);
+		System.out.println(u.getNom());
+	String pass = getRandomStr();
+	u.setMdp(pass);
+	u.setActived(true);
+	System.out.println(u.getMdp());
+	try {
+		System.out.println("avant mail");
+		notif.sendMdp(u);
+		System.out.println("ap mail");
+
+	} catch (Exception e) {
+System.out.println(e);	}
+	u.setMdp(encoder.encode(pass));
+		
+		userRepository.save(u);
+		return "redirect:/login1";
+	}
+	
+	 public static String getRandomStr() 
+	    {
+	        //choisissez un caractére au hasard à partir de cette chaîne
+	        String str = "ABCDEFGHJKLMNPQRSTUVWXYZ"
+	                    + "abcdefghijkmnopqrstuvxyz" 
+	        		+"123456789"; 
+	  
+	        StringBuilder s = new StringBuilder(8); 
+	  
+	        for (int i = 0; i < 8; i++) { 
+	            int index = (int)(str.length() * Math.random()); 
+	            s.append(str.charAt(index)); 
+	        } 
+	        return s.toString(); 
+	    }
+	 
 	
 	
 	

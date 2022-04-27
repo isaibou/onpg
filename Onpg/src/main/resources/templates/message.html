@@ -305,10 +305,10 @@
                             <span>Acceuil</span>
                         </a>
                     </li>
-                    <li>
-                        <a th:href="actualite">
+                    <li class="active">
+                        <a th:href="message">
                             <i class="material-icons">text_fields</i>
-                            <span>Actualités</span>
+                            <span>Messages</span>
                         </a>
                     </li>
                     <li>
@@ -385,7 +385,21 @@
                         </a>
                        
                     </li>
-                    <li class="active">
+                    
+                        <li  >
+                        <a th:href="texteReglementaire" >
+                            <i class="material-icons">attach_money</i>
+                            <span>Textes Reglementaires</span>
+                        </a>
+                       
+                    </li><li>
+                        <a th:href="publicationAdmin" >
+                            <i class="material-icons">attach_money</i>
+                            <span>Publications Scientifiques</span>
+                        </a>
+                       
+                    </li>
+                    <li >
                         <a th:href="admin">
                             <i class="material-icons">manage_accounts</i>
                             <span>Utilisateurs</span>
@@ -466,24 +480,15 @@
                                         </tr>
                                     </tfoot>
                                     <tbody>
-                                        <tr th:each="n:${newsContact}">
+                                        <tr th:each="n:${newsMessages}">
                                             <td th:text="${n.nom}"></td>
                                             <td th:text="${n.phone}"></td>
                                             <td th:text="${n.email}"></td>
-                                            <td th:text="${n.message}"></td>
-                                           <td>
-                                             <div class="btn-group dropdown">
-         <button class="btn btn-default btn-xs" data-toggle="dropdown"><i class="glyphicon glyphicon-cog"></i> Action <span class="caret"></span></button>
-                                                   <ul class="dropdown-menu">
-																											
-																			<li>
-																					<a th:href="@{activerUser(id=${n.email})}"style="margin-top:-5px;"  class="btn btn-sm btn-light" role="button">Activer</a>
-																						<a th:href="@{desactiverUser(id=${n.email})}"style="margin-top:-5px;"  class="btn btn-sm btn-light" role="button">Désactiver</a>
-																																																										
-																												</li>
-																												
-																										</ul>
-</div>
+                                            <td th:text="${n.messageEnvoye}"></td>
+                                          <td>
+          <button class="btn btn-default btn-xs">
+     <i class="glyphicon glyphicon-cog"></i> <a th:href="@{workMessage(id=${n.Id})}"> Traiter</a> </button></center></td>
+    
      </center>
                                             </td>
                                         </tr>

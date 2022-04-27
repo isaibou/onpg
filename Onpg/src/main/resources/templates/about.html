@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"
+ xmlns:th="http://www.thymeleaf.org">
 
 <head>
    <!-- basic -->
@@ -40,7 +41,7 @@
       <div class="container">
          <div class="row">
             <div class="col-md-9 col-lg-10">
-               <div class="logo"><a href="index.html"><img src="images/logoONPG.jpeg" height="60px" width="50px" alt="#" /></a></div>
+               <div class="logo"><a href="index.html"><img src="images/onpglog1.jpeg" height="60px" width="50px" alt="#" /></a></div>
                <div class="main_menu float-right">
                   <div class="menu">
                      <ul class="clearfix">
@@ -357,10 +358,10 @@
                         <p>Envoyez-nous votre message et nous vous répondrons dans les plus brefs délais.</p>
                         <div class="form_contact">
                            <!-- form -->
-                           <form action="saveContact">
+                           <form th:action="@{saveMessage}">
                               <fieldset>
                                  <div class="field">
-                                    <input type="text" name="nom" placeholder="Entrez votre nom" required />
+                                    <input type="text" name="nom" placeholder="Entrez votre nom et prénom" required />
                                  </div>
                                  <div class="field">
                                     <input type="text" name="phone" placeholder="Entrez votre numéro de  téléphone"
@@ -370,7 +371,7 @@
                                     <input type="email" name="email" placeholder="Entrez votre email" required/>
                                  </div>
                                  <div class="field">
-                                    <textarea name="message" placeholder="Ecrivez votre message"
+                                    <textarea name="messageEnvoye" type="text"  placeholder="Ecrivez votre message"
                                        required></textarea>
                                  </div>
                                  <div class="field">

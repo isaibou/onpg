@@ -5,7 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
-public class Contact {
+public class Message {
 
 	@Id
 	@GeneratedValue
@@ -13,7 +13,7 @@ public class Contact {
 	private String nom;
 	private String phone;
 	private String email;
-	private String message;
+	private String messageEnvoye;
 	private boolean isDone;
 	
 	
@@ -41,11 +41,13 @@ public class Contact {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public String getMessage() {
-		return message;
+	
+	
+	public String getMessageEnvoye() {
+		return messageEnvoye;
 	}
-	public void setMessage(String message) {
-		this.message = message;
+	public void setMessageEnvoye(String messageEnvoye) {
+		this.messageEnvoye = messageEnvoye;
 	}
 	public boolean isDone() {
 		return isDone;
