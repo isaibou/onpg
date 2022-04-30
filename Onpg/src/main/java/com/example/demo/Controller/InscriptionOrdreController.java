@@ -20,6 +20,7 @@ import com.amazonaws.services.s3.model.S3ObjectInputStream;
 import com.amazonaws.util.IOUtils;
 import com.example.demo.Entity.Inscription;
 import com.example.demo.Repository.InscriptionRepository;
+import com.example.demo.service.NotificationMail;
 import com.example.demo.service.ServiceDownloadAWS;
 import com.example.demo.service.ServiceUploadAWS;
 
@@ -32,8 +33,9 @@ public class InscriptionOrdreController {
 	InscriptionRepository inscriptionRepository;
 	@Autowired
 	ServiceDownloadAWS downloadS3;
+	@Autowired
+	NotificationMail notif;
 	
-
 	@Value("${aws.s3.bucket}")
 	private String s3bucket;
 	 @Autowired
@@ -276,6 +278,8 @@ public class InscriptionOrdreController {
 		  uploadS3.uploadPieceIdentitez(inscrip, pieceIdentite);
 		  uploadS3.uploadThese(inscrip, these); uploadS3.uploadTraduction(inscrip, traduction); 
 		  uploadS3.uploadAttestationEmploie(inscrip, attestationEmploie);
+		  notif.sendConfirmationInscriptionOrdre(inscrip);
+
 		  inscriptionRepository.save(inscrip);
 		System.out.println("done");
 		return"redirect:/index" ;
@@ -283,6 +287,7 @@ public class InscriptionOrdreController {
 	
 	@RequestMapping("/addInscrip")
 	public String addInscrip(Inscription inscrip,Model model) {
+
 		inscriptionRepository.save(inscrip);
 		model.addAttribute("inscrip", inscrip);
 		return"addInsO2";

@@ -104,7 +104,18 @@ public class ForumController {
 		return total ;
 	}
 	
+	@RequestMapping("/addSujet")
+	public String addSujet() {
+		return "addSUjet";
+	}
 	
-	
+	@RequestMapping("/saveSujet")
+	public String saveSujet(Sujet sujet, Authentication auth) {
+		Users user = userRepository.getOne(auth.getName());
+		sujet.setDate(new Date());
+		sujet.setUsers(user);
+		sujetRepository.save(sujet);
+		return "redirect:/forum";
+	}
 	
 }

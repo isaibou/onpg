@@ -151,7 +151,7 @@
                         <p>Paiement via AirtelMoney.</p>
                         <div class="form_contact">
                            <!-- form -->
-                         <form action="https://mypvit.com/pvit-secure-full-api.kk" class="form-validation">
+                         <form action="https://mypvit.com/pvit-secure-full-api.kk"  method="POST"  class="form-validation">
                               <fieldset>
                                   
                              
@@ -165,10 +165,46 @@
 									  <option value="dog">Carte d'inscription</option>
 								    </select>
                                      </div>
-                                 <div class="field">
-                                    <input type="text" name="name" placeholder="Entrez votre numéro de  téléphone"
-                                       required="" />
-                                 </div>
+                                     
+                                 
+         <label class="col-sm-4 control-label" style="margin: 5px 0px;" for="input-id-1"><b>Prix :</b></label>
+     <div class="col-sm-8" style="margin: 5px 0px;">
+     <input type="text" class="form-control" disabled  th:value="${Montant}+ FCFA "/>
+       </div>
+       
+         <div class="col-sm-8" style="margin: 5px 0px;">
+     <input type="number" class="form-control" name="montant"  />
+       </div>
+       
+     <div class="col-sm-8" style="margin: 5px 0px;">
+     <input type="hidden" class="form-control" name="tel_marchand" value="074447492"/>
+       </div>
+       
+      
+       
+       
+       <div class="col-sm-8" style="margin: 5px 0px;">
+            <input type="hidden" class="form-control" name="ref" th:value="${ref}"/> 
+         </div>
+         
+     <div class="col-sm-8" style="margin: 5px 0px;">
+            <input type="hidden" class="form-control" name="service" value="WEB"/>
+         </div>
+      
+        
+     <div class="col-sm-8" style="margin: 5px 0px;">
+            <input type="hidden" class="form-control" name="operateur" value="AM"/>
+            
+         </div>
+         
+         
+           
+     <div class="col-sm-8" style="margin: 5px 0px;">
+            <input type="hidden" class="form-control"  name="redirect" value="https://www.ninigh.org/myCommande"/>
+            
+         </div>
+   
+   
                                
                                  <div class="field">
                                     <button class="field_bt">Payez</button>

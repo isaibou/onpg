@@ -89,7 +89,7 @@
 	 <div class="tab-pane active" id="tab_default_1" style="padding:20px 15px;margin:0px 2px;border-top:2px #19a9d5 solid;background-color:white;">
 	  <div class="panel panel-default">
        <div th:each="t:${allTextes}" class="table-responsive">
-			<p th:text = "${t.texte}"> </p> 
+			<h1 th:text = "${t.texte}"> </h1> 
 			<a th:href="@{viewTexte(id=${t.id})}" 
 			 >Télécharger ici.</a>
 			 <br>

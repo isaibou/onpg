@@ -4,6 +4,7 @@ import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 import org.springframework.format.annotation.DateTimeFormat;
@@ -12,13 +13,13 @@ import org.springframework.format.annotation.DateTimeFormat;
 public class Inscription {
 
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idInscrip;
 	private String nom;
 	private String prenom;
 	private String nationalite;
 	private String adresse;
-
+	private String emailInscrip;
 	@DateTimeFormat(pattern= "yyyy-mm-dd")
 	private Date dateInscrip;
 	private String Lieu;
@@ -282,6 +283,14 @@ public class Inscription {
 	public void setPathTraduction(String pathTraduction) {
 		this.pathTraduction = pathTraduction;
 	}
+	
+	public String getEmailInscrip() {
+		return emailInscrip;
+	}
+	public void setEmailInscrip(String emailInscrip) {
+		this.emailInscrip = emailInscrip;
+	}
+	
 	
 	
 	
