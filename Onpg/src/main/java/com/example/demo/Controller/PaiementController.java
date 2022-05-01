@@ -1,30 +1,13 @@
 package com.example.demo.Controller;
 
-import java.io.BufferedReader;
 
-import java.io.DataOutputStream;
+
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
-import java.io.OutputStreamWriter;
-import java.io.Reader;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.net.http.HttpHeaders;
-import java.nio.charset.StandardCharsets;
-import java.util.HashMap;
-import java.util.Map;
 
-import org.springframework.http.HttpEntity;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.client.RestTemplate;
 
-import com.amazonaws.HttpMethod;
-import com.fasterxml.jackson.databind.util.JSONPObject;
 //import com.google.gson.JsonObject;
 @Controller
 public class PaiementController {
