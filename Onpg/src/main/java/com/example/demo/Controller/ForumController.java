@@ -1,6 +1,8 @@
 package com.example.demo.Controller;
 
 import java.util.Date;
+
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -98,11 +100,7 @@ public class ForumController {
 	}
 	
 	
-	public  Long nbCom(Sujet sujet) {
-		List<Commentaires> allComment =  commentairesRepository.findBySujets(sujet);
-		Long total = (long) allComment.size();
-		return total ;
-	}
+	
 	
 	@RequestMapping("/addSujet")
 	public String addSujet() {
@@ -113,7 +111,7 @@ public class ForumController {
 	public String addSujet2Z(Model model) {
 		Sujet sujet = new Sujet();
 		model.addAttribute("sujet", sujet);
-		return "addSUjet";
+		return "addSujet2";
 	}
 	
 	
@@ -127,4 +125,9 @@ public class ForumController {
 		return "redirect:/forum";
 	}
 	
+	public  Long nbCom(Sujet sujet) {
+		List<Commentaires> allComment =  commentairesRepository.findBySujets(sujet);
+		Long total = (long) allComment.size();
+		return total ;
+	}
 }
