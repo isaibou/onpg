@@ -445,7 +445,7 @@
                             PAIEMENT
                             </h2>
                            <ul class="header-dropdown m-r--5">
-                             <a th:href="@{addTexte}"> Ajouter une cotisation</a>  
+                             <a th:href="@{addCotisation}"> Ajouter une cotisation</a>  
                             </ul>
                         </div>
                         <div class="body">
@@ -481,15 +481,15 @@
                                             <td th:text="${p.montant}"></td>
                                             <td th:text="${p.raison}" > </td>
                                             <td th:text="${p.modePaiement}" > </td>
-                                            <td th:text="${p.date}" > </td>
+                                            <td th:text="${p.dateDepot}" > </td>
                                             <td>
                                              <div class="btn-group dropdown">
          <button class="btn btn-default btn-xs" data-toggle="dropdown"><i class="glyphicon glyphicon-cog"></i> Actions <span class="caret"></span></button>
                                                    <ul class="dropdown-menu">
 																											
 																			<li>
-																					<a th:href="@{confirmer(id=${t.idPaiement})}"style="margin-top:-5px;"  class="btn btn-sm btn-light" role="button">Confirmer</a>
-																						<a th:href="@{infirmer(id=${t.idPaiement})}"style="margin-top:-5px;"  class="btn btn-sm btn-light" role="button">Infirmer</a>
+																					<a th:href="@{confirmer(id=${p.idPaiement})}"style="margin-top:-5px;"  class="btn btn-sm btn-light" role="button">Confirmer</a>
+																						<a th:href="@{infirmer(id=${p.idPaiement})}"style="margin-top:-5px;"  class="btn btn-sm btn-light" role="button">Infirmer</a>
 																																																										
 																												</li>
 																												

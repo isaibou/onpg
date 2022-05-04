@@ -3,14 +3,21 @@ package com.example.demo.Controller;
 
 
 import java.io.IOException;
+import java.util.Date;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.example.demo.Entity.Commentaires;
 import com.example.demo.Entity.Paiement;
+import com.example.demo.Entity.Sujet;
+import com.example.demo.Entity.Users;
 import com.example.demo.Entity.refAM;
+import com.example.demo.Repository.PaiementRepository;
 import com.example.demo.Repository.RefAMRepository;
 
 //import com.google.gson.JsonObject;
@@ -19,6 +26,8 @@ public class PaiementController {
 	
 	@Autowired
 	RefAMRepository regAmrepo;
+	@Autowired
+	PaiementRepository paiementRpo;
 
 	@RequestMapping("/paiement")
 	public String messagerie(Model model) {
@@ -104,4 +113,28 @@ public class PaiementController {
 		
 		return"pvit";
 	}
+	
+	
+	@RequestMapping("/paiementAdmin")
+	public String paiementAdmin(Model model, Commentaires com) {
+		List<Paiement> paiement = paiementRpo.findAll();
+		model.addAttribute("paiementAll", paiement);
+		return"paiementAdmin";
+	}
+
+	@RequestMapping("/savePaiement")
+	public String saveSujet(Paiement p) {
+		p.setDateDepot(new Date());
+		paiementRpo.save(p);
+		return "redirect:/paiementAdmin";
+	}
+	
+	@RequestMapping("/addCotisation")
+	public String addCotisation(Model model) {
+		model.addAttribute("cotisation", new Paiement());
+		return "addCotisation";
+	}
+	
+	
+	
 }

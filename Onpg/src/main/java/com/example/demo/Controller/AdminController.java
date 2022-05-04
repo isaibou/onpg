@@ -92,11 +92,6 @@ public class AdminController {
 	
 	
 	
-	@RequestMapping("/paiementAdmin")
-	public String paiementAdmin(Model model, Commentaires com) {
-		List<Users> usersAll = userRepository.findAll();
-		model.addAttribute("usersAll", usersAll);
-		return"paiementAdmin";
-	}
+	
 	
 }
