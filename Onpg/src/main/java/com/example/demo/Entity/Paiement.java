@@ -15,6 +15,7 @@ public class Paiement {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long idPaiement;
 	private String raison;
+	private String modePaiement;
 	private Long montant;
 	private Date dateDepot;
 	
@@ -52,6 +53,13 @@ public class Paiement {
 	public void setDateDepot(Date dateDepot) {
 		this.dateDepot = dateDepot;
 	}
+	public String getModePaiement() {
+		return modePaiement;
+	}
+	public void setModePaiement(String modePaiement) {
+		this.modePaiement = modePaiement;
+	}
+	
 	
 	
 

@@ -42,7 +42,7 @@ public class TextReglementaireController {
 	
 		
 		
-		@RequestMapping(value="/texteRAdmin")
+		@RequestMapping(value="/texteReglementaire")
 		public String publiAdmin(Model model) {
 			List<TexteReglemantaire> allTexte = texteReglementaireRepository.findAll();
 			model.addAttribute("allTexte", allTexte);
