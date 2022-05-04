@@ -278,8 +278,7 @@ public class InscriptionOrdreController {
 		  uploadS3.uploadPieceIdentitez(inscrip, pieceIdentite);
 		  uploadS3.uploadThese(inscrip, these); uploadS3.uploadTraduction(inscrip, traduction); 
 		  uploadS3.uploadAttestationEmploie(inscrip, attestationEmploie);
-		  notif.sendConfirmationInscriptionOrdre(inscrip);
-
+		//  notif.sendConfirmationInscriptionOrdre(inscrip);
 		  inscriptionRepository.save(inscrip);
 		System.out.println("done");
 		return"redirect:/index" ;
