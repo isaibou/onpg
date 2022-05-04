@@ -4,25 +4,32 @@ package com.example.demo.Controller;
 
 import java.io.IOException;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.demo.Entity.Paiement;
+import com.example.demo.Entity.refAM;
+import com.example.demo.Repository.RefAMRepository;
 
 //import com.google.gson.JsonObject;
 @Controller
 public class PaiementController {
+	
+	@Autowired
+	RefAMRepository regAmrepo;
 
 	@RequestMapping("/paiement")
 	public String messagerie(Model model) {
 		
-		 Long ref2 = (long) 12 ;
+		refAM ref2 = new refAM();
+		regAmrepo.save(ref2);
 		
 		  String tel_marchand ="076520785" ; 
 		  String Montant = "200"; // mettre le prix en string avec le tostring String
-		  ref2++;
-	     String  ref ="P011"+ref2;  ; // référence de la transaction
+		
+	     String  ref ="refONPG"+ref2.getIdRef();  ; // référence de la transaction
 		  String tel_client = "074213803"; // //com.getClient().getPhoneClient() ;
 		  String action ="1"; // 1 par défaut String service = "REST" ; //Web² par défaut
 		  String operateur ="AM" ; // doit correspondre au tel marchand 
