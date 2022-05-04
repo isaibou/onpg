@@ -15,6 +15,11 @@ public class AcceuilController {
 	}
 	
 	
+	@RequestMapping("/")
+	public String home1() {
+		return "redirect:/index1";
+	}
+	
 	
 	@RequestMapping("/index1")
 	public String Acceuil(Authentication auth, Model model ) {
