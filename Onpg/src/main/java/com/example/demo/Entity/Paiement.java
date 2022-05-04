@@ -18,6 +18,7 @@ public class Paiement {
 	private String modePaiement;
 	private Long montant;
 	private Date dateDepot;
+	private String statut;
 	
 	@ManyToOne
 	private Users users;
@@ -58,6 +59,12 @@ public class Paiement {
 	}
 	public void setModePaiement(String modePaiement) {
 		this.modePaiement = modePaiement;
+	}
+	public String getStatut() {
+		return statut;
+	}
+	public void setStatut(String statut) {
+		this.statut = statut;
 	}
 	
 	
