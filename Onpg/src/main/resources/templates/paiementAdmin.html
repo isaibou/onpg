@@ -481,7 +481,7 @@
                                             <td th:text="${p.montant}"></td>
                                             <td th:text="${p.raison}" > </td>
                                             <td th:text="${p.modePaiement}" > </td>
-                                            <td th:text="${p.dateDepot}" > </td>
+                                            <td th:text="${#dates.format(p.dateDepot, 'dd-MM-yyyy')}"> </td>
                                             <td>
                                              <div class="btn-group dropdown">
          <button class="btn btn-default btn-xs" data-toggle="dropdown"><i class="glyphicon glyphicon-cog"></i> Actions <span class="caret"></span></button>
