@@ -8,6 +8,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.example.demo.Entity.Paiement;
+
 //import com.google.gson.JsonObject;
 @Controller
 public class PaiementController {
@@ -17,7 +19,7 @@ public class PaiementController {
 		
 		  String tel_marchand ="076520785" ; 
 		  String Montant = "200"; // mettre le prix en string avec le tostring String
-	     String  ref ="P001"; // référence de la transaction
+	     String  ref ="P011"  ; // référence de la transaction
 		  String tel_client = "074213803"; // //com.getClient().getPhoneClient() ;
 		  String action ="1"; // 1 par défaut String service = "REST" ; //Web² par défaut
 		  String operateur ="AM" ; // doit correspondre au tel marchand 
