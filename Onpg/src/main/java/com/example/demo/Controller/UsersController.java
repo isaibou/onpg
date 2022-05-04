@@ -74,7 +74,7 @@ public class UsersController {
 		u.setIsNew(true);
 		userRepository.save(u);
 		System.out.println("Done");
-	//	notif.sendConfirmationInscriptionSite(u);
+		notif.sendConfirmationInscriptionSite(u);
 		return"redirect:/index";
 	}
 	

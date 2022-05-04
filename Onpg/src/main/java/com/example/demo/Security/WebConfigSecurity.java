@@ -38,7 +38,7 @@ public class WebConfigSecurity extends WebSecurityConfigurerAdapter {
 		.authorizeRequests()
 		.antMatchers("/test/**","/css/**","/images/**","/js/**","/libs/**","/fonts/**","/src/**","/forgetPassword","/privacy","/resetPassword",
 				"/inscriptionS","/inscrire","/presentation","/inscriptionO/",
-				"/publication","/membres","/inscriptionO","/insO","/insO2","/login1","/role","/saveUsers","/index","/index1","/viewPublication","/viewTexte","/saveContact","/addInscrip","/addInscrip2","/saveMessage").permitAll()
+				"/publication","/membres","/inscriptionO","/insO","/insO2","/login1","/role","/saveUsers","/index","/index1","/viewPublication","/viewTexte","/saveContact","/addInscrip","/addInscrip2","/saveMessage","/paiement").permitAll()
 		.anyRequest()
 		.authenticated()
 		.and()
