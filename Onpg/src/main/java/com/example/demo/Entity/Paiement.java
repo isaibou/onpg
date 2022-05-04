@@ -12,7 +12,7 @@ import javax.persistence.ManyToOne;
 public class Paiement {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy =GenerationType.IDENTITY)
 	private Long idPaiement;
 	private String raison;
 	private String modePaiement;
