@@ -109,6 +109,15 @@ public class ForumController {
 		return "addSUjet";
 	}
 	
+	@RequestMapping("/addSujet2")
+	public String addSujet2Z(Model model) {
+		Sujet sujet = new Sujet();
+		model.addAttribute("sujet", sujet);
+		return "addSUjet";
+	}
+	
+	
+	
 	@RequestMapping("/saveSujet")
 	public String saveSujet(Sujet sujet, Authentication auth) {
 		Users user = userRepository.getOne(auth.getName());
