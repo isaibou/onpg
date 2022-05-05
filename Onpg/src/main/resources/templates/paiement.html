@@ -151,7 +151,7 @@
                         <p>Paiement via AirtelMoney.</p>
                         <div class="form_contact">
                            <!-- form -->
-                         <form action="https://mypvit.com/pvit-secure-full-api.kk"  method="POST"  class="form-validation">
+                         <form action="addP"  method="POST"  class="form-validation">
                               <fieldset>
                                   
                              
@@ -166,8 +166,37 @@
 								    </select>
                                      </div>
                                      
+                                       <div class="col-sm-8" style="margin: 5px 0px;">
+     <input type="number" placeholder="Entrez votre nol" class="form-control" name="nom"  />
+       </div>
+       
+         <div class="col-sm-8" style="margin: 5px 0px;">
+     <input type="number" placeholder="Entrez votre prénom" class="form-control" name="prenom"  />
+       </div>
+                                     
+      			   <div class="col-sm-8" style="margin: 5px 0px;">
+  					   <input type="number" placeholder="Entrez le montant" class="form-control" name="montant"  />
+      			 </div>
+   
+         <div class="col-sm-8" style="margin: 5px 0px;">
+     <input type="number" placeholder="Entrez les commentaires" class="form-control" name="montant"  />
+       </div>
+       
+       
+       
+                                      <div class="field">
+                                    <button class="field_bt">Enregistrer</button>
+                                 </div>
+                                     </fieldset>
+                                     
+                                    
+                                     </form>
                                  
-         <label class="col-sm-4 control-label" style="margin: 5px 0px;" for="input-id-1"><b>Prix :</b></label>
+                                 
+                      <form action="https://mypvit.com/pvit-secure-full-api.kk"  method="POST"  class="form-validation">
+       
+                                     <fieldset>
+       
    
        
          <div class="col-sm-8" style="margin: 5px 0px;">
@@ -198,7 +227,7 @@
          
            
      <div class="col-sm-8" style="margin: 5px 0px;">
-            <input type="hidden" class="form-control"  name="redirect" value="onpg1.herokuapp.com/paiement"/>
+            <input type="hidden" class="form-control"  name="redirect" value="https://onpg1.herokuapp.com/paiement"/>
             
          </div>
    
