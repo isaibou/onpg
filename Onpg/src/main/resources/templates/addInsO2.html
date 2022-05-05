@@ -36,7 +36,7 @@
 
   
 
-<div class="form-group">
+<!-- <div class="form-group">
   <label class="col-md-4 control-label">Copie légalisée du diplome de doctorat en pharmacie (Consulat et UOBO):</label>  
     <div class="col-md-6 inputGroupContainer">
     <div class="input-group">
@@ -44,7 +44,7 @@
   <input  placeholder="Entrez le nombre d'année de cours" class="form-control" name="diplomeFile" type="file">
     </div>
   </div>
-</div>
+</div> -->
 
 <div class="form-group">
   <label class="col-md-4 control-label">Attestation diplome :</label>  
@@ -54,7 +54,9 @@
   <input  placeholder="Entrez le nombre d'année de cours" class="form-control" name="AttestationDiplomeFile" required type="file">
     </div>
   </div>
-</div><div class="form-group">
+</div>
+<!-- 
+<div class="form-group">
   <label class="col-md-4 control-label">Thèse :</label>  
     <div class="col-md-6 inputGroupContainer">
     <div class="input-group">
@@ -144,7 +146,7 @@
   </div>
 </div>
 
-
+ -->
 
 <!-- Select Basic -->
 
@@ -155,7 +157,7 @@
  <div class="form-group">
   <label class="col-md-7 control-label"></label>
   <div class="col-md-2">
-    <button type="submit" class="btn btn-primary" >Confirmer <span class="glyphicon glyphicon-send"></span></button>
+    <button type="submit" class="btn btn-primary" onClick="Message1()" >Confirmer <span class="glyphicon glyphicon-send"></span></button>
   </div> 
   <div class="col-md-2">
     <button class="btn btn-danger"> <a href="javascript:history.back()">Annuler</a>  <span class="glyphicon glyphicon-remove"></span></button>
@@ -173,6 +175,13 @@
  </small></p>
 </div>
 </div>
+<script type="text/javascript">
+   function Message1() {
+       var msg="Votre demande d'inscription à l'ordre a bien été enrégistrée. Un mail de confirmation vous sera envoyé."+
+       "Vous serez redirigé vers la page d'inscription";
+       alert(msg);
+   }
+</script>
 <script src="../libs/jquery/jquery/dist/jquery.js"></script>
 <script src="../libs/jquery/bootstrap/dist/js/bootstrap.js"></script>
 <script src="js/ui-load.js"></script>

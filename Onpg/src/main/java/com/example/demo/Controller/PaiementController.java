@@ -52,6 +52,7 @@ public class PaiementController {
 		  model.addAttribute("action", action);
 		  model.addAttribute("operateur", operateur);
 		  model.addAttribute("token", token);
+		 model.addAttribute("paiement", new Paiement());
 		return"paiement";
 	}
 	
@@ -134,6 +135,25 @@ public class PaiementController {
 		model.addAttribute("cotisation", new Paiement());
 		return "addCotisation";
 	}
+	
+	@RequestMapping("/savePaiementAM")
+	public String savePaiementAM(Paiement p, Model model) {
+		p.setDateDepot(new Date());
+		p.setModePaiement("AM");
+		paiementRpo.save(p);
+		Long prix = p.getMontant();
+		refAM ref2 = new refAM();
+		regAmrepo.save(ref2);
+		
+		  String tel_marchand ="076520785" ; 
+		  String Montant = "200"; // mettre le prix en string avec le tostring String
+		
+	     String  ref ="refONPG"+ref2.getIdRef(); 
+	     model.addAttribute("ref", ref);
+		model.addAttribute("prix", prix);
+		return "pvit";
+	}
+	
 	
 	
 	

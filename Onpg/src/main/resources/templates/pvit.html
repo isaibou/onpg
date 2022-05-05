@@ -15,7 +15,7 @@
 <body>
 <div style="margin:50px;"></div>
 <div class="col-md-6 col-sm-6 col-xs-12 spacer col-md-offset-3">
-   <a href="" class="navbar-brand block m-t"><i class="fa fa-power-off"></i> <b>Pharmacie NIBIGHOLET</b> </a>
+   <a href="" class="navbar-brand block m-t"><i class="fa fa-power-off"></i> <b>ONPG</b> </a>
   <div class="panel panel-default">
    <div class="panel-heading"> Récapitulatif </div>
        <form action="https://mypvit.com/pvit-secure-full-api.kk" method="POST" id="payeForm"> 
@@ -30,13 +30,13 @@
        </div> -->
        
         
-         <label class="col-sm-4 control-label" style="margin: 5px 0px;" for="input-id-1"><b>Prix :</b></label>
+         <label class="col-sm-4 control-label" style="margin: 5px 0px;" for="input-id-1"><b>Montant :</b></label>
      <div class="col-sm-8" style="margin: 5px 0px;">
-     <input type="text" class="form-control" disabled  th:value="${Montant}+ FCFA "/>
+     <input type="text" class="form-control" disabled  th:value="${prix}+ FCFA "/>
        </div>
        
          <div class="col-sm-8" style="margin: 5px 0px;">
-     <input type="hidden" class="form-control" name="montant" th:value="${Montant}"/>
+     <input type="hidden" class="form-control" name="montant" th:value="${prix}"/>
        </div>
        
      <div class="col-sm-8" style="margin: 5px 0px;">

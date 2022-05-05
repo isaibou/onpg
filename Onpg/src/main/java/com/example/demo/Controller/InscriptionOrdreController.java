@@ -233,42 +233,43 @@ public class InscriptionOrdreController {
 		    	viewFile( response, Path, file);
 		    }
 	@RequestMapping("/addInscrip2")
-	public String addInscrip2(Long id,
-			Model model
-						  ,
-						  
-						  @RequestParam("diplomeFile") MultipartFile diplome,
-						  
-						  @RequestParam("AttestationDiplomeFile") MultipartFile attestationDiplome,
-						  
-						  @RequestParam("theseFile") MultipartFile these,
-						  
-						  @RequestParam("casierJudicaireFile") MultipartFile casierJudiciare,
-						  
-						  @RequestParam("CVFile") MultipartFile CV,@RequestParam("PhotosFile")
-						  MultipartFile photos,
-						  
-						  @RequestParam("pieceIdentiteFile") MultipartFile pieceIdentite,
-						  
-						  @RequestParam("carteSejourFile") MultipartFile carteSejour,
-						  
-						  @RequestParam("acteNaissanceFile") MultipartFile acteNaissance,
-						  
-						  @RequestParam("attestattionRadidationFile") MultipartFile
-						  attestationRadiation,
-						  
-						  @RequestParam("attestationNonExerciceFile") MultipartFile
-						  attestatyionNonExercice,
-						  
-						  @RequestParam("attestationEmploieFile") MultipartFile attestationEmploie,
-						  
-						  @RequestParam("traductionFile") MultipartFile traduction
+	public String addInscrip2(Long id,	Model model	  ,  @RequestParam("AttestationDiplomeFile") MultipartFile attestationDiplome
+					
 						 ) {
+		
+		/* 
+		  @RequestParam("diplomeFile") MultipartFile diplome,
+		  
+		 
+		  
+		  @RequestParam("theseFile") MultipartFile these,
+		  
+		  @RequestParam("casierJudicaireFile") MultipartFile casierJudiciare,
+		  
+		  @RequestParam("CVFile") MultipartFile CV,@RequestParam("PhotosFile")
+		  MultipartFile photos,
+		  
+		  @RequestParam("pieceIdentiteFile") MultipartFile pieceIdentite,
+		  
+		  @RequestParam("carteSejourFile") MultipartFile carteSejour,
+		  
+		  @RequestParam("acteNaissanceFile") MultipartFile acteNaissance,
+		  
+		  @RequestParam("attestattionRadidationFile") MultipartFile
+		  attestationRadiation,
+		  
+		  @RequestParam("attestationNonExerciceFile") MultipartFile
+		  attestatyionNonExercice,
+		  
+		  @RequestParam("attestationEmploieFile") MultipartFile attestationEmploie,
+		  
+		  @RequestParam("traductionFile") MultipartFile traduction*/
 		
 		Inscription inscrip = inscriptionRepository.getById(id);
 		
-		  uploadS3.uploadDiplome(inscrip, diplome);
 		  uploadS3.uploadAttestationDiplome(inscrip, attestationDiplome) ;
+
+		/*  uploadS3.uploadDiplome(inscrip, diplome);
 		  uploadS3.uploadActeNaissance(inscrip, acteNaissance);
 		  uploadS3.uploadAttestationNonExercice(inscrip, attestatyionNonExercice);
 		  uploadS3.uploadAttestationRadiation(inscrip, attestationRadiation);
@@ -277,11 +278,11 @@ public class InscriptionOrdreController {
 		  uploadS3.uploadCV(inscrip, CV); uploadS3.uploadPhotos(inscrip, photos);
 		  uploadS3.uploadPieceIdentitez(inscrip, pieceIdentite);
 		  uploadS3.uploadThese(inscrip, these); uploadS3.uploadTraduction(inscrip, traduction); 
-		  uploadS3.uploadAttestationEmploie(inscrip, attestationEmploie);
+		  uploadS3.uploadAttestationEmploie(inscrip, attestationEmploie);*/
 		 notif.sendConfirmationInscriptionOrdre(inscrip);
 		  inscriptionRepository.save(inscrip);
 		System.out.println("done");
-		return"redirect:/index" ;
+		return"redirect:/inscriptionO" ;
 	}
 	
 	@RequestMapping("/addInscrip")

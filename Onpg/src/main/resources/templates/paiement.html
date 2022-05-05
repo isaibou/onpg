@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"
+ xmlns:th="http://www.thymeleaf.org">
 
 <head>
    <!-- basic -->
@@ -151,27 +152,27 @@
                         <p>Paiement via AirtelMoney.</p>
                         <div class="form_contact">
                            <!-- form -->
-                         <form action="addP"  method="POST"  class="form-validation">
+                         <form th:action="@{savePaiementAM}"  method="POST"  class="form-validation" >
                               <fieldset>
                                   
                              
                                  <div class="field">
-								<select name="pets" id="pet-select">
+								<select name="raison" id="pet-select">
 								    <option value="">--Choisissez une désignation--</option>
-								    <option value="dog">Inscription</option>
-									 <option value="cat">Cotisation annuelle</option>
-									  <option value="dog">Certificat de bonne conduite</option>
-									 <option value="cat">Duplicata</option>
-									  <option value="dog">Carte d'inscription</option>
+								    <option value="Inscription">Inscription</option>
+									 <option value="Cotisation annuelle">Cotisation annuelle</option>
+									  <option value="Certificat de bonne conduite">Certificat de bonne conduite</option>
+									 <option value="Duplicata">Duplicata</option>
+									  <option value="Carte d'inscription">Carte d'inscription</option>
 								    </select>
                                      </div>
                                      
                                        <div class="col-sm-8" style="margin: 5px 0px;">
-     <input type="number" placeholder="Entrez votre nol" class="form-control" name="nom"  />
+     <input type="text" placeholder="Entrez votre nol" class="form-control" name="nom"  />
        </div>
        
          <div class="col-sm-8" style="margin: 5px 0px;">
-     <input type="number" placeholder="Entrez votre prénom" class="form-control" name="prenom"  />
+     <input type="text" placeholder="Entrez votre prénom" class="form-control" name="prenom"  />
        </div>
                                      
       			   <div class="col-sm-8" style="margin: 5px 0px;">
@@ -179,7 +180,7 @@
       			 </div>
    
          <div class="col-sm-8" style="margin: 5px 0px;">
-     <input type="number" placeholder="Entrez les commentaires" class="form-control" name="montant"  />
+     <input type="text" placeholder="Entrez les commentaires" class="form-control" name="montant"  />
        </div>
        
        
@@ -193,7 +194,7 @@
                                      </form>
                                  
                                  
-                      <form action="https://mypvit.com/pvit-secure-full-api.kk"  method="POST"  class="form-validation">
+                  <!--     <form action="https://mypvit.com/pvit-secure-full-api.kk"  method="POST"  class="form-validation">
        
                                      <fieldset>
        
@@ -238,7 +239,7 @@
                                  </div>
                               </fieldset>
                          
-                           </form>
+                           </form> -->
                            <!-- end form -->
                         </div>
                      </div>
