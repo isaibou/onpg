@@ -1,16 +1,23 @@
 <!DOCTYPE html>
 <html>
+
 <body>
-ONPG
+
+
+<img src='cid:imageContent'/>
+<img src="$logo.png" alt="logo" />
+
+<h1>  <u> QUITTANCE DE PAIEMENT ONPG </u> </h1>
+ 
+  
 <h3> Nom : <b>$nom</b></h3>
 <h3> Prénom : <b>$prenom</b></h3>
-<h3> Montant : <b>$montant</b></h3>
+<h3> Montant : <b>$montant FCFA</b></h3>
 <h3> Moyen de paiement : <b>$moyen</b></h3>
 <h3> Motif de paiement: <b>$motif</b></h3>
 <h3> Date de paiement : <b>$date</b></h3>
 
 <br/>
 <br/>
-This file is generated on : $genDateTime
 </body>
 </html> 

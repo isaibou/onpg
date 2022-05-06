@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.io.File;
 import java.io.StringReader;
 import java.io.StringWriter;
 import java.net.URL;
@@ -20,6 +21,10 @@ import org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.FileSystemXmlApplicationContext;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.Resource;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
@@ -44,7 +49,7 @@ public class HtmlToPdf {
 	
 	
 	@GetMapping("/genpdf")
-	HttpEntity<byte[]> createPdf( Long id) throws IOException {
+	HttpEntity<byte[]> createPdf( Long id) throws IOException, java.io.IOException {
 		/* first, get and initialize an engine */
 		Paiement paiement = paiementRepository.getOne(id);
 		
@@ -57,6 +62,17 @@ public class HtmlToPdf {
 		ve.init();
 		Template t = ve.getTemplate("templates/helloworld.vm");
 		/* create a context and add data */
+		
+		/*
+		 * Object smileimage = new
+		 * ClassPathResource("https://i.stack.imgur.com/wvloX.pngg"); File smfile =
+		 * ((ClassPathResource) smileimage).getFile();
+		 */
+		
+		
+		ApplicationContext appContext = new FileSystemXmlApplicationContext();
+		 Resource resource = appContext.getResource( "logo8.jpeg" );
+		
 		VelocityContext context = new VelocityContext();
 	
 		context.put("nom", paiement.getNom());
@@ -66,6 +82,8 @@ public class HtmlToPdf {
 		context.put("motif", paiement.getRaison());
 		context.put("date", paiement.getDateDepot().toString());
 		context.put("genDateTime", LocalDateTime.now().toString());
+		context.put("motif", paiement.getRaison());
+	    context.put( "imageContent", new File( resource.getURI() ));
 		/* now render the template into a StringWriter */
 		StringWriter writer = new StringWriter();
 		t.merge(context, writer);

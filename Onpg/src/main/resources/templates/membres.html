@@ -72,6 +72,57 @@
          </div>
       </div>
    </section>
+      <section class="content">
+        <div class="container-fluid">
+          
+            <!-- Basic Examples -->
+        
+            <!-- #END# Basic Examples -->
+            <!-- Exportable Table -->
+            <div class="row clearfix">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="card">
+                       
+                        <div class="body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-striped table-hover dataTable js-exportable" >
+                                    <thead>
+                                        <tr>
+                                            <th>Noms et Prénoms</th>
+                                            <th>Structure</th>
+                                            <th>Localité</th>
+                                            <th>Grade</th>
+                                            <th>Section</th>
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                           <th>Noms et Prénoms</th>
+                                            <th>Structure</th>
+                                            <th>Localité</th>
+                                            <th>Grade</th>
+                                            <th>Section</th>
+                                        </tr>
+                                    </tfoot>
+                                    <tbody>
+                                        <tr th:each="t:${tableau}">
+                                            <td th:text="${t.nomPrenom}"></td>
+                                            <td th:text="${t.structure}"></td>
+                                            <td th:text="${t.localite}"></td>
+                                            <td th:text="${t.grade}"></td>
+                                            <td th:text="${t.section}"></td>
+                                        </tr>
+                                      
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- #END# Exportable Table -->
+        </div>
+    </section>
    <!-- end section -->
    <!-- section -->
    <!-- end section -->
@@ -93,6 +144,23 @@
    <script src="js/wow.js"></script>
    <!-- custom js -->
    <script src="js/custom.js"></script>
+    <!-- Jquery DataTable Plugin Js -->
+    <script src="../plugins/jquery-datatable/jquery.dataTables.js"></script>
+    <script src="../plugins/jquery-datatable/skin/bootstrap/js/dataTables.bootstrap.js"></script>
+    <script src="../plugins/jquery-datatable/extensions/export/dataTables.buttons.min.js"></script>
+    <script src="../plugins/jquery-datatable/extensions/export/buttons.flash.min.js"></script>
+    <script src="../plugins/jquery-datatable/extensions/export/jszip.min.js"></script>
+    <script src="../plugins/jquery-datatable/extensions/export/pdfmake.min.js"></script>
+    <script src="../plugins/jquery-datatable/extensions/export/vfs_fonts.js"></script>
+    <script src="../plugins/jquery-datatable/extensions/export/buttons.html5.min.js"></script>
+    <script src="../plugins/jquery-datatable/extensions/export/buttons.print.min.js"></script>
+    
+    
+    <!-- Custom Js -->
+    <script src="../js/admin.js"></script>
+    <script src="../js/jquery-datatable.js"></script>
+    
+   
    <!-- google map js -->
    <script
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8eaHt9Dh5H57Zh0xVTqxVdBFCvFMqFjQ&callback=initMap"></script>

@@ -21,7 +21,12 @@ public class MessageController {
 	@RequestMapping("/saveMessage")
 	public String saveContact(Message message) {
 		message.setDone(false);
-		notif.sendAccuse(message);
+		try {
+			notif.sendAccuse(message);
+
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
 		messageRepository.save(message);
 		return "redirect:/presentation";
 	}

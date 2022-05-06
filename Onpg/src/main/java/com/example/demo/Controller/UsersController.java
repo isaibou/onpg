@@ -74,7 +74,12 @@ public class UsersController {
 		u.setIsNew(true);
 		userRepository.save(u);
 		System.out.println("Done");
-		notif.sendConfirmationInscriptionSite(u);
+		try {
+			notif.sendConfirmationInscriptionSite(u);
+
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
 		return"redirect:/index";
 	}
 	

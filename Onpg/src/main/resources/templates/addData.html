@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8" />
+  <title>Inscription à l'ONPG</title>
+  <meta name="description" content="app, web app, responsive, responsive layout, admin, admin panel, admin dashboard, flat, flat ui, ui kit, AngularJS, ui route, charts, widgets, components" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <link rel="stylesheet" href="../libs/assets/animate.css/animate.css" type="text/css" />
+  <link rel="stylesheet" href="../libs/assets/font-awesome/css/font-awesome.min.css" type="text/css" />
+  <link rel="stylesheet" href="../libs/assets/simple-line-icons/css/simple-line-icons.css" type="text/css" />
+  <link rel="stylesheet" href="../libs/jquery/bootstrap/dist/css/bootstrap.css" type="text/css" />
+  <link rel="stylesheet" href="css/font.css" type="text/css" />
+  <link rel="stylesheet" href="css/app.css" type="text/css" />
+    <link rel="stylesheet" href="css/ibe.css" type="text/css" />
+  
+  
+  
+</head>
+<body background="blue">
+ 
+<div style="margin:50px;"></div>
+<div class="col-md-8 col-sm-6 col-xs-12 spacer col-md-offset-2">
+   <a href="" class="navbar-brand block m-t"><i class="glyphicon glyphicon-plus-sign"></i> <b>Inscription a l'ONPG</b> </a>
+  <div class="panel panel-default">
+   <div class="panel-heading"> Documents à fournir </div>
+       
+    
+    <form class="well form-horizontal" th:action="getData" enctype="multipart/form-data" method="post"  id="contact_form">
+<fieldset>
+
+<!-- Form Name -->
+
+<!-- Text input-->
+
+
+  
+
+<!-- <div class="form-group">
+  <label class="col-md-4 control-label">Copie légalisée du diplome de doctorat en pharmacie (Consulat et UOBO):</label>  
+    <div class="col-md-6 inputGroupContainer">
+    <div class="input-group">
+        <span class="input-group-addon"><i class="glyphicon glyphicon-file"></i></span>
+  <input  placeholder="Entrez le nombre d'année de cours" class="form-control" name="diplomeFile" type="file">
+    </div>
+  </div>
+</div> -->
+
+<div class="form-group">
+  <label class="col-md-4 control-label">Attestation diplome :</label>  
+    <div class="col-md-6 inputGroupContainer">
+    <div class="input-group">
+        <span class="input-group-addon"><i class="glyphicon glyphicon-file"></i></span>
+  <input  placeholder="Entrez le nombre d'année de cours" class="form-control" name="ExcelFile" required type="file">
+    </div>
+  </div>
+</div>
+<!-- 
+<div class="form-group">
+  <label class="col-md-4 control-label">Thèse :</label>  
+    <div class="col-md-6 inputGroupContainer">
+    <div class="input-group">
+        <span class="input-group-addon"><i class="glyphicon glyphicon-file"></i></span>
+  <input  placeholder="Entrez le nombre d'année de cours" class="form-control" name="theseFile" required type="file">
+    </div>
+  </div>
+</div><div class="form-group">
+  <label class="col-md-4 control-label">Casier Judiciare:</label>  
+    <div class="col-md-6 inputGroupContainer">
+    <div class="input-group">
+        <span class="input-group-addon"><i class="glyphicon glyphicon-file"></i></span>
+  <input  placeholder="Entrez le nombre d'année de cours" class="form-control" name="casierJudicaireFile" required type="file">
+    </div>
+  </div>
+</div><div class="form-group">
+  <label class="col-md-4 control-label">CVFile:</label>  
+    <div class="col-md-6 inputGroupContainer">
+    <div class="input-group">
+        <span class="input-group-addon"><i class="glyphicon glyphicon-file"></i></span>
+  <input  placeholder="Entrez le nombre d'année de cours" class="form-control" name="CVFile" required type="file">
+    </div>
+  </div>
+</div><div class="form-group">
+  <label class="col-md-4 control-label">PhotosFile:</label>  
+    <div class="col-md-6 inputGroupContainer">
+    <div class="input-group">
+        <span class="input-group-addon"><i class="glyphicon glyphicon-file"></i></span>
+  <input  placeholder="Entrez le nombre d'année de cours" class="form-control" name="PhotosFile" required type="file">
+    </div>
+  </div>
+</div><div class="form-group">
+  <label class="col-md-4 control-label">pieceIdentiteFile:</label>  
+    <div class="col-md-6 inputGroupContainer">
+    <div class="input-group">
+        <span class="input-group-addon"><i class="glyphicon glyphicon-file"></i></span>
+  <input  placeholder="Entrez le nombre d'année de cours" class="form-control" name="pieceIdentiteFile" required type="file">
+    </div>
+  </div>
+</div><div class="form-group">
+  <label class="col-md-4 control-label">Carte de Sejour:</label>  
+    <div class="col-md-6 inputGroupContainer">
+    <div class="input-group">
+        <span class="input-group-addon"><i class="glyphicon glyphicon-file"></i></span>
+  <input  placeholder="Entrez le nombre d'année de cours" class="form-control" name="carteSejourFile" type="file">
+    </div>
+  </div>
+</div><div class="form-group">
+  <label class="col-md-4 control-label">acteNaissanceFile:</label>  
+    <div class="col-md-6 inputGroupContainer">
+    <div class="input-group">
+        <span class="input-group-addon"><i class="glyphicon glyphicon-file"></i></span>
+  <input  placeholder="Entrez le nombre d'année de cours" class="form-control" name="acteNaissanceFile" required type="file">
+    </div>
+  </div>
+</div><div class="form-group">
+  <label class="col-md-4 control-label">attestattionRadidationFile:</label>  
+    <div class="col-md-6 inputGroupContainer">
+    <div class="input-group">
+        <span class="input-group-addon"><i class="glyphicon glyphicon-file"></i></span>
+  <input  placeholder="Entrez le nombre d'année de cours" class="form-control" name="attestattionRadidationFile" type="file">
+    </div>
+  </div>
+</div><div class="form-group">
+  <label class="col-md-4 control-label">attestationNonExerciceFile:</label>  
+    <div class="col-md-6 inputGroupContainer">
+    <div class="input-group">
+        <span class="input-group-addon"><i class="glyphicon glyphicon-file"></i></span>
+  <input  placeholder="Entrez le nombre d'année de cours" class="form-control" name="attestationNonExerciceFile" type="file">
+    </div>
+  </div>
+</div><div class="form-group">
+  <label class="col-md-4 control-label">attestationEmploieFile:</label>  
+    <div class="col-md-6 inputGroupContainer">
+    <div class="input-group">
+        <span class="input-group-addon"><i class="glyphicon glyphicon-file"></i></span>
+  <input  placeholder="Entrez le nombre d'année de cours" class="form-control" name="attestationEmploieFile" required type="file">
+    </div>
+  </div>
+</div><div class="form-group">
+  <label class="col-md-4 control-label">traductionFile:</label>  
+    <div class="col-md-6 inputGroupContainer">
+    <div class="input-group">
+        <span class="input-group-addon"><i class="glyphicon glyphicon-file"></i></span>
+  <input  placeholder="Entrez le nombre d'année de cours" class="form-control" name="traductionFile" type="file">
+    </div>
+  </div>
+</div>
+
+ -->
+
+<!-- Select Basic -->
+
+<!-- Success message -->
+<!-- <div class="alert alert-success" role="alert" id="success_message">Success <i class="glyphicon glyphicon-thumbs-up"></i> Success!.</div>
+ -->
+<!-- Button -->
+ <div class="form-group">
+  <label class="col-md-7 control-label"></label>
+  <div class="col-md-2">
+    <button type="submit" class="btn btn-primary" onClick="Message1()" >Confirmer <span class="glyphicon glyphicon-send"></span></button>
+  </div> 
+  <div class="col-md-2">
+    <button class="btn btn-danger"> <a href="javascript:history.back()">Annuler</a>  <span class="glyphicon glyphicon-remove"></span></button>
+  </div> 
+  
+</div>
+
+</fieldset>
+</form>
+    </div>
+<div class="text-center">	
+ <p><small class="text-muted">
+  <span class="pull-right">2.2.0 <a href ui-scroll="app" class="m-l-sm text-muted"><i class="fa fa-long-arrow-up"></i></a></span>
+  <span class="pull-left"> &copy; ONPG. </span> 
+ </small></p>
+</div>
+</div>
+<script type="text/javascript">
+   function Message1() {
+       var msg="Votre demande d'inscription à l'ordre a bien été enrégistrée. Un mail de confirmation vous sera envoyé."+
+       "Vous serez redirigé vers la page d'inscription";
+       alert(msg);
+   }
+</script>
+<script src="../libs/jquery/jquery/dist/jquery.js"></script>
+<script src="../libs/jquery/bootstrap/dist/js/bootstrap.js"></script>
+<script src="js/ui-load.js"></script>
+<script src="js/ui-jp.config.js"></script>
+<script src="js/ui-jp.js"></script>
+<script src="js/ui-nav.js"></script>
+<script src="js/ui-toggle.js"></script>
+<script src="js/ui-client.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.min.js" integrity="sha256-tQ3x4V2JW+L0ew/P3v2xzL46XDjEWUExFkCDY0Rflqc=" crossorigin="anonymous"></script>
+</body>
+</html>
