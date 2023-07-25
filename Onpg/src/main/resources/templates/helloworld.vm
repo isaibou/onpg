@@ -7,8 +7,9 @@
 <img src='cid:imageContent'/>
 <img src="$logo.png" alt="logo" />
 
-<h1>  <u> QUITTANCE DE PAIEMENT ONPG </u> </h1>
- 
+<div style="float: center">
+<h1 >  <u> QUITTANCE DE PAIEMENT ONPG </u> </h1>
+ </div>
   
 <h3> Nom : <b>$nom</b></h3>
 <h3> Prénom : <b>$prenom</b></h3>

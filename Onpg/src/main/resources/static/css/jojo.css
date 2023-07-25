@@ -1,0 +1,44 @@
+div#contentToPrint {
+    margin-top: 20px;
+}
+
+#contentToPrint .en-tete{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.text-tete ul li {
+    margin-bottom: -10px;
+}
+
+.image-tete img {
+    width: auto;
+    height: 130px;
+}
+
+.grand-text {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.footer {
+    width: 100%;
+    overflow: hidden;
+    background: #e6e6e6;
+    padding: 2%;
+}
+
+.footer img {
+    height: auto;
+    width: 100%;
+}
+
+.signature {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+
+

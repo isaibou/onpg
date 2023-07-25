@@ -33,4 +33,9 @@ public class AcceuilController {
 		
 		return"index";
 	}
+	
+	@RequestMapping("/v")
+	public String testpdf() {
+		return "testpdf2";
+	}
 }

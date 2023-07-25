@@ -155,6 +155,11 @@ public class PaiementController {
 	}
 	
 	
+	@RequestMapping("/recu")
+	public String recu(Model model) {
+		model.addAttribute("cotisation", new Paiement());
+		return "recu1";
+	}
 	
 	
 }
